@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>LanPlan | Login</title>
+    <% include partials/headers/defaultHeader %>
+  </head>
+  <body>
+      <% include partials/headers/headingBar %>
+      <% include partials/errors/loginError %>
+      <!-- Main Body -->
+      <% include partials/bodys/loginForm %>
+      <!-- Footer -->
+      <% include partials/headers/footer %>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+  </body>
+</html>
