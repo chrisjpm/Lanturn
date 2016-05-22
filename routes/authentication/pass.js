@@ -1,7 +1,7 @@
 module.exports = function(passport, LocalStrategy){
   //DB connection for user db
   var mongoose = require('mongoose');
-  var db = mongoose.createConnection('mongodb://localhost/lanplan');
+  var db = mongoose.createConnection('mongodb://admin:nostromo23@ds011422.mlab.com:11422/lanplan');
 
   var UserSchema = require('../../models/user');
   var UserModel = db.model('user', UserSchema);
