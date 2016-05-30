@@ -13,15 +13,15 @@ $(function() {
 
 var map;
 function initialize() {
-
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("outcome #1");
       var pos = new google.maps.LatLng(position.coords.latitude,
         position.coords.longitude);
 
         var mapOptions = {
           center: { lat: position.coords.latitude, lng: position.coords.longitude},
-          zoom: 17,
+          zoom: 15,
           disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -47,19 +47,22 @@ function initialize() {
 
         removeLoadingImage();
     }, function() {
+      console.log("outcome #2");
       handleNoGeolocation();
     });
   } else {
     // Browser doesn't support Geolocation
+    console.log("outcome #3");
     handleNoGeolocation();
   }
 }
 
 function handleNoGeolocation(){
     var mapOptions = {
-      zoom: 17,
+      zoom: 3,
       disableDefaultUI: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: {lat:20,lng:-30}
     };
     map = new google.maps.Map(document.getElementById('mapCanvas'),
     mapOptions);
