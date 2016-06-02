@@ -73,5 +73,5 @@ function userView(req, res, next) {
     next();
 }
 
-server.listen(80);
+server.listen(80 || process.env.PORT);
 module.exports = app;
