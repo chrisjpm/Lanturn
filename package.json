@@ -32,6 +32,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.4.6",
     "steam-search": "^1.0.0",
     "uid-safe": "^2.1.1",
     "utils-merge": "^1.0.0"
