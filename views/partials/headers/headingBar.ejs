@@ -1,8 +1,8 @@
 <header class="header" id="headerContainer">
   <div id="header" class="container">
     <% if(user){ %>
-      <a href="create"><img class="add" title="Create Your Own Party/ Create Your Own Team" data-toggle="tooltip" data-placement="bottom" id="add" src="public/images/graphics/add.png" onmouseover="this.src='public/images/graphics/addhov.png'" onmouseout="this.src='public/images/graphics/add.png'"></a>
-      <a href="profile" ><img class="img-circle" title="View Your Profile" data-toggle="tooltip" data-placement="bottom" id="profPic" src="public/user_profile_pics/large/<%= user.image_name %>"></a>
+      <a href="create"><img class="add" title="Create Your Own Party/ Create Your Own Team" data-toggle="tooltip" data-placement="bottom" id="add" src="../public/images/graphics/add.png" onmouseover="this.src='../public/images/graphics/addhov.png'" onmouseout="this.src='../public/images/graphics/add.png'"></a>
+      <a href="profile" ><img class="img-circle" title="View Your Profile" data-toggle="tooltip" data-placement="bottom" id="profPic" src="../public/user_profile_pics/large/<%= user.image_name %>"></a>
     <% } %>
     <ul id="navBar" class="nav nav-tabs" role="tablist">
       <li type="button" class="btn"><a href="/"><strong>Home</strong></a></li>
@@ -31,7 +31,7 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="index.html">Home</a></li>
       </ul>
     </div>
-    <a href="rarepepe.html"><img id="logo" src="public/images/graphics/logo.png"></a>
+    <a href="rarepepe.html"><img id="logo" src="../public/images/graphics/logo.png"></a>
     <h1 id="titleBig">LanPlan <strong>| Home</strong></h1>
     <h2 id="titleSmall"><strong>Home</strong></h2>
     <p id="slogan">Be <strong>anti-</strong>anti-social.</p>

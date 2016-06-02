@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>LanPlan | Create</title>
+    <% include partials/headers/defaultHeader %>
+  </head>
+  <body>
+      <% include partials/headers/headingBar %>
+      <!-- Main Body -->
+      <a href="/create/party">
+        <button id="partyBtn" type="button" class="btn btn-primary btn-block">Create A LAN Party</button>
+      </a>
+
+      <a href="/create/team">
+        <button id="teamBtn" type="button" class="btn btn-primary btn-block">Create A Team</button>
+      </a>
+      <!-- Footer -->
+      <% include partials/headers/footer %>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+  </body>
+</html>

@@ -14,6 +14,10 @@ var passport = require('passport')
 require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
 var app = express();
+var server = require('http').createServer(app);
+
+var io = require("./routes/sockets/sockets")(server);
+
 var routes = require('./routes');
 
 // view engine setup
@@ -68,4 +72,6 @@ function userView(req, res, next) {
     res.locals.user = req.user;
     next();
 }
+
+server.listen(80);
 module.exports = app;

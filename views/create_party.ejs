@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>LanPlan | Create a LAN Party</title>
+    <% include partials/headers/defaultHeader %>
+    <link rel="stylesheet" href="../public/stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" href="../public/stylesheets/bootstrap-datetimepicker.min.css">
+    <script src="../public/javascripts/misc/socket.io.js"></script>
+    <script src="../public/javascripts/misc/moment.min.js"></script>
+    <script src="../public/javascripts/misc/bootstrap-datetimepicker.min.js"></script>
+    <script src="../public/javascripts/site/create_party.js"></script>
+  </head>
+  <body>
+      <% include partials/headers/headingBar %>
+      <!-- Main Body -->
+      <% include partials/errors/partyCreationError %>
+      <div class="formContainer">
+        <form action="" method="post">
+          <div id="inputs">
+            <h3>Enter LAN Party details</h3>
+
+            <div class="input-group game-search">
+                    <input for="game name" id="game-name-input" type="text" class="form-control" name="game_name" placeholder="Game name" required>
+                    <span id="steam-game-searcher" class="input-group-addon" title="Auto-retrieves game info from Steam" data-toggle="tooltip" data-placement="top">
+                        <span class="	glyphicon glyphicon-search"></span>
+                    </span>
+                </div>
+            <br>
+            <input for="game url" id="game-url-input" type="text" class="form-control" name="game_url" placeholder="Game URL (optional)">
+            <br>
+            <input type="text" id="game-image-input" title="Image Preview" class="form-control" name="game_image" value="" placeholder="Game Image URL (optional)" data-toggle="tooltip" data-placement="right">
+            <br>
+            <input type="text" id="game-price-input" class="form-control" name="game_price" value="" placeholder="Game Price (optional)">
+            <br>
+            <input type="text" id="game-rating-input" class="form-control" name="game_rating" value="" placeholder="Game Rating (optional)">
+            <br><br>
+            <input for="max attendants" min="1" max="100" type="number" class="form-control" name="max_attendants" placeholder="Maximum players" required>
+            <br>
+            <input for="address" type="text"  class="form-control" name="address" placeholder="Full Address" required>
+            <br>
+            <input for="description" type="text"  class="form-control" name="desc" placeholder="Description/details (optional)">
+            <br>
+
+            <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" name="date" placeholder="Date and Time" required />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            <br>
+            <br>
+
+            <input type="submit" class="form-control">
+          </div>
+        </form>
+      </div>
+      <!-- Footer -->
+      <% include partials/headers/footer %>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip({html: true});
+    });
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        $('#datetimepicker1').datetimepicker();
+      });
+    </script>
+  </body>
+</html>
