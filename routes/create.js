@@ -17,7 +17,7 @@ router.get('/party',isLoggedIn, function(req, res, next) {
   res.render('create_party.ejs', {error : req.flash("party_submit_res")});
 });
 
-//TODO TEST PLEASE
+
 router.post('/party',isLoggedIn, function(req, res, next) {
   var PartySchema = require('../models/party');
   var PartyModel = db.model('party', PartySchema);
@@ -50,7 +50,7 @@ router.post('/party',isLoggedIn, function(req, res, next) {
       res.redirect('/create/party');
     }else{
       var results = JSON.parse(data).results[0];
-      var coords = {"lat" : results.geometry.location.lat, "lng" : results.geometry.location.lng};
+      var coords = [results.geometry.location.lng, results.geometry.location.lat];
 
       address = results.formatted_address;
 

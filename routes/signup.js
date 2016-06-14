@@ -11,6 +11,14 @@ const saltRounds = 12;
 
 //GET REQUESTS
 router.get('/', function(req, res, next) {
+  var partyQuery = require('../queries/getParties');
+  partyQuery.getPartiesInSetRadius({"lat":55.8237866, "lng" : -4.2750094000000445}, function(err, partyList){
+    console.log("party list: " +partyList);
+    console.log("ERORR: " +err);
+    if(!err && partyList){
+      console.log(partyList);
+    }
+  });
   res.render('signup.ejs',{error : req.flash("error")});
 });
 

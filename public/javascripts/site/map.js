@@ -1,3 +1,5 @@
+var socket = io();
+
 $( document ).ready(function() {
   setMapHeight();
 });
@@ -44,7 +46,7 @@ function initialize() {
         var GeoMarker = new GeolocationMarker(map);
         var geoMarkerCircle = new google.maps.Circle({radius: 10});
         geoMarkerCircle.bindTo("center", GeoMarker, "position");
-
+        socket.emit('scanParties', {"lat":position.coords.latitude, "lng":position.coords.longitude});
         removeLoadingImage();
     }, function() {
       console.log("outcome #2");
@@ -80,6 +82,7 @@ function handleNoGeolocation(){
     legend.index = 1;
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 
+    io.emit('scanParties', {"lat":20, "lng":-30});
     removeLoadingImage();
 }
 
@@ -92,5 +95,48 @@ function setMapHeight(){
 function removeLoadingImage(){
   $("#mapLoading").remove();
 }
+
+function addPartyToMap(party){
+  var partyID = party._id;
+  var host = party.owner_username;
+  var gameInfo = party.game_info;
+  var gamePrice = gameInfo.price;
+  var gameImage = gameInfo.image;
+  var gameUrl = gameInfo.url;
+  var gameName = gameInfo.name;
+  var attendants = party.attendants;
+  var maxAttendants = party.maxAttendants;
+  var location = party.coords;
+  var dateTime = party.date;
+  var description = party.description;
+  var latLng = new google.maps.LatLng(location[1],location[0]);
+
+  var markerImg = "public/images/graphics/greenmarker.png";
+
+  var contentString = "<a id='hostNameRef' href='/profile/"+host+"'><h1 id='hostName'><b>"+host+"</b></a><b>'s Party</b></h1> \n <a id='gameRef' target='_blank' href='"+gameUrl+"'><h2 id='gameTxt'>"+gameName+"<h2></a> \n <h3>"+dateTime+"</h3> \n <h4>"+attendants.length+"/"+maxAttendants+" players</h4> \n <p>---------------------------------</p> \n <h5>"+description+"</h5> <button type='button' id='joinParty' onclick='joinParty("+partyID+");' class='btn btn-default'>Join Party</button>";
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+    icon: {url:markerImg},
+    position: latLng,
+    map: map,
+    title: host+"'s Party",
+    animation: google.maps.Animation.DROP
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+socket.on('partyScanResult', function(results){
+  console.log(results);
+  for(var i = 0; i < results.length; i++){
+    addPartyToMap(results[i]);
+  }
+});
 
 google.maps.event.addDomListener(window, 'load', initialize);

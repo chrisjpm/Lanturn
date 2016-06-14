@@ -12,7 +12,10 @@ var UserSchema = new mongoose.Schema({
   attendants: Array,
   maxAttendants: Number,
   address: String,
-  coords: Object,
+  coords: {
+    type: [Number], // [<longitude>, <latitude>]
+    index: '2d'
+  },
   date: String,
   description: String
 }, {collection:'parties'});
