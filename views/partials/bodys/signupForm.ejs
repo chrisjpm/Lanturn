@@ -1,5 +1,5 @@
 <div class="signupFormContainer">
-        <form action="" method="post">
+        <form id="signUpForm" action="" method="post">
           <div id="inputs">
             <h3>Sign Up To LanPlan</h3>
             <input for="username" type="text" class="form-control" name="usr" placeholder="Username" required>
@@ -10,10 +10,13 @@
             <br>
             <input for="location" type="text"  class="form-control" name="loc" placeholder="Location (Country,City)" required>
             <br>
-            <input for="password" type="password" class="form-control" name="psw" placeholder="Password" required>
+            <input id="password" for="password" type="password" class="form-control" name="psw" placeholder="Password" required>
+            <br>
+            <input id="conf_password" for="confirm_password" type="password" class="form-control" name="conf_psw" placeholder="Confirm Password" required>
             <br>
             <br>
-            <input type="submit" class="form-control">
+            <button onclick="validateForm();" type="button" class="form-control">Submit</button>
+            <input id="submiter" type="submit" class="form-control" style="display:none;">
           </div>
         </form>
   </div>
