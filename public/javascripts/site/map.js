@@ -82,7 +82,7 @@ function handleNoGeolocation(){
     legend.index = 1;
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 
-    io.emit('scanParties', {"lat":20, "lng":-30});
+    socket.emit('scanParties', {"lat":20, "lng":-30});
     removeLoadingImage();
 }
 
