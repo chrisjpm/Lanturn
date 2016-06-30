@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://admin:nostromo23@ds011422.mlab.com:11422/lanplan');
 
 //Password hashing
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 const saltRounds = 12;
 
 

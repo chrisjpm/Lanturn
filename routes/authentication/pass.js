@@ -16,7 +16,7 @@ module.exports = function(passport, LocalStrategy){
 
   passport.use(new LocalStrategy(
     function(username, password, done) {
-      var bcrypt = require('bcrypt');
+      var bcrypt = require('bcryptjs');
 
       UserModel.findOne({ username_lower: username.toLowerCase() }, function(err, user) {
         if (err) { return done(err);  }
