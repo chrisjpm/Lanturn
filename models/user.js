@@ -19,6 +19,7 @@ var UserSchema = new mongoose.Schema({
   host_rep: { type: Number, default: 0 },
   mvps: { type: Number, default: 0 },
   join_date: { type: Date, default: Date.now },
+  verified : {type:Boolean, default: false}
 }, {collection:'users'});
 
 
