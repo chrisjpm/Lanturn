@@ -23,6 +23,9 @@ module.exports = function(passport, LocalStrategy){
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' });
         }
+        if(user.verified == false){
+          return done(null, false, { message: 'Email has not been verified.' });
+        }
         bcrypt.compare(password, user.pass_hash, function(err, res) {
           if(err) return done(null, false, { message: 'Error occurred.' });
 
