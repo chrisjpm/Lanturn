@@ -1,0 +1,12 @@
+//  TABLE OF CONTENTS
+/*
+1.  Partials
+  1.1 Header
+*/
+
+//1
+//1.1
+@mixin header($headerBgColor, $borderColor, $borderThickness) {
+  background-color: $headerBgColor;
+  border-bottom: $borderThickness solid $borderColor;
+}

@@ -1,0 +1,37 @@
+nav {
+
+	&.header {
+		@include header(#fff, $disabledBgColor, 4px);
+		&:hover {
+			@include header($defaultBgColor, $primaryBgColor, 4px);
+		}
+	}
+
+	h4 {
+		&.header-title {
+			color: $defaultColor;
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+	}
+
+	ul {
+		&.headernav {
+			li {
+				&:hover {
+					background-color: $primaryBgColor;
+				}
+			}
+			a {
+				color: $defaultColor;
+				&:hover {
+					background-color: rbga($primaryBgColor, 0.4);
+					color: $whiteColor;
+					height: auto;
+				}
+			}
+		}
+	}
+
+}
