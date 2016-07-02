@@ -18,11 +18,11 @@ var server = require('http').createServer(app);
 
 var io = require("./routes/sockets/sockets")(server);
 
-var routes = require('./routes');
+var routes = require('./routes/routes.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

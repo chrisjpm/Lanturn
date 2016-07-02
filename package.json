@@ -24,6 +24,7 @@
     "express-session": "^1.13.0",
     "google-geocode": "0.0.2",
     "google-timezone-api": "^1.0.1",
+    "hbs": "^4.0.0",
     "mongoose": "^4.4.16",
     "morgan": "~1.6.1",
     "node-gyp": "^3.3.1",
