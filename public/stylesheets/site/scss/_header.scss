@@ -1,9 +1,10 @@
 nav {
+	background-color: $headerBgColor;
 
-	&.header {
-		@include header(#fff, $disabledBgColor, 4px);
+	.headerborder {
+		@include header($disabledBgColor, $headerBorderThickness);
 		&:hover {
-			@include header($defaultBgColor, $primaryBgColor, 4px);
+			@include header($primaryBgColor, $headerBorderThickness);
 		}
 	}
 
@@ -17,6 +18,8 @@ nav {
 	}
 
 	ul {
+
+		margin-bottom: -$headerBorderThickness;
 		&.headernav {
 			li {
 				&:hover {
@@ -24,9 +27,10 @@ nav {
 				}
 			}
 			a {
+				vertical-align: top !important;
 				color: $defaultColor;
 				&:hover {
-					background-color: rbga($primaryBgColor, 0.4);
+					background-color: $primaryBgColor;
 					color: $whiteColor;
 					height: auto;
 				}
@@ -34,4 +38,10 @@ nav {
 		}
 	}
 
+}
+
+nav:hover{
+	.headerborder{
+		@include header($primaryBgColor, $headerBorderThickness);
+	}
 }

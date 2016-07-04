@@ -6,7 +6,10 @@
 
 //1
 //1.1
-@mixin header($headerBgColor, $borderColor, $borderThickness) {
-  background-color: $headerBgColor;
-  border-bottom: $borderThickness solid $borderColor;
+@mixin header($borderColor, $borderThickness) {
+  height: $borderThickness;
+  width: 100%;
+
+  background: $borderColor;
+  transition: ease-in 0.3s;
 }

@@ -3,6 +3,7 @@
 /*
 1.  Text
 2.  Background
+3.  Header
 */
 
 //1
@@ -40,3 +41,7 @@ $succesBgColor-light: lighten($succesBgColor, 15%);
 $alertBgColor-light: lighten($alertBgColor, 15%);
 $errorBgColor-light: lighten($errorBgColor, 15%);
 $disabledBgColor-light: lighten($disabledBgColor, 15%);
+
+//3
+$headerBorderThickness: 4px;
+$headerBgColor: #fff;

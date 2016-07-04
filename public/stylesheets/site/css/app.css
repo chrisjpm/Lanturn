@@ -1,6 +1,7 @@
 /*
 1.  Text
 2.  Background
+3.  Header
 */
 /*
 1.  Partials
@@ -12,24 +13,36 @@
 .waves-effect.waves-blue .waves-ripple {
   background-color: rgba(0, 65, 191, 0.76); }
 
-nav.header {
-  background-color: #fff;
-  border-bottom: 4px solid #939393; }
-  nav.header:hover {
-    background-color: white;
-    border-bottom: 4px solid #1672b4; }
+nav {
+  background-color: #fff; }
+  nav .headerborder {
+    height: 4px;
+    width: 100%;
+    background: #939393;
+    transition: ease-in 0.3s; }
+    nav .headerborder:hover {
+      height: 4px;
+      width: 100%;
+      background: #1672b4;
+      transition: ease-in 0.3s; }
+  nav h4.header-title {
+    color: #939393; }
+    nav h4.header-title:hover {
+      color: #1672b4; }
+  nav ul {
+    margin-bottom: -4px; }
+    nav ul.headernav li:hover {
+      background-color: #1672b4; }
+    nav ul.headernav a {
+      vertical-align: top !important;
+      color: #939393; }
+      nav ul.headernav a:hover {
+        background-color: #1672b4;
+        color: #e1e1e1;
+        height: auto; }
 
-nav h4.header-title {
-  color: #939393; }
-  nav h4.header-title:hover {
-    color: #1672b4; }
-
-nav ul.headernav li:hover {
-  background-color: #1672b4; }
-
-nav ul.headernav a {
-  color: #939393; }
-  nav ul.headernav a:hover {
-    background-color: rbga(#1672b4, 0.4);
-    color: #e1e1e1;
-    height: auto; }
+nav:hover .headerborder {
+  height: 4px;
+  width: 100%;
+  background: #1672b4;
+  transition: ease-in 0.3s; }
