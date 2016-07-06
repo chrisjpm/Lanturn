@@ -33,7 +33,24 @@ nav {
 					background-color: $primaryBgColor;
 					color: $whiteColor;
 					height: auto;
+					transition: ease-in 0.3s;
 				}
+			}
+		}
+	}
+
+	ul {
+		&.side-nav {
+			h6 {
+				&.nav-header {
+					padding: 15px 0 0 15px !important;
+					margin: 0 !important;
+					color: $defaultColor;
+				}
+			}
+
+			i {
+				font-size: $tinyIcon;
 			}
 		}
 	}

@@ -20,8 +20,10 @@ $secondaryColor-dark: darken($secondaryColor, 15%);
 $successColor: rgb(56, 177, 53);
 $alertColor: rgb(172, 144, 59);
 $errorColor: rgb(180, 48, 48);
-$disabledColor: rgb(147, 147, 147);
+$disabledColor: rgb(185, 185, 185);
 $whiteColor: rgb(225, 225, 225);
+
+$tinyIcon: 1.2em !important;
 
 // 2
 $defaultBgColor: rgb(255, 255, 255) !default;
@@ -35,7 +37,7 @@ $secondaryBgColor-light: lighten($secondaryBgColor, 15%);
 $succesBgColor: rgb(56, 177, 53);
 $alertBgColor: rgb(172, 144, 59);
 $errorBgColor: rgb(180, 48, 48);
-$disabledBgColor: rgb(147, 147, 147);
+$disabledBgColor: rgb(185, 185, 185);
 
 $succesBgColor-light: lighten($succesBgColor, 15%);
 $alertBgColor-light: lighten($alertBgColor, 15%);
@@ -43,5 +45,5 @@ $errorBgColor-light: lighten($errorBgColor, 15%);
 $disabledBgColor-light: lighten($disabledBgColor, 15%);
 
 //3
-$headerBorderThickness: 4px;
+$headerBorderThickness: 3px;
 $headerBgColor: #fff;
