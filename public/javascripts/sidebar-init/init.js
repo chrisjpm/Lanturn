@@ -1,5 +1,6 @@
 $(document).ready(function() {
+  $(".leftSB").sidebar();
   $(".toggleLeftSb").on('click', function() {
-    $(".leftSB").sidebar().trigger("sidebar:toggle");
+    $(".leftSB").trigger("sidebar:toggle");
 	});
 });
