@@ -1,11 +1,28 @@
 //  TABLE OF CONTENTS
 /*
 1.  Waves
+2.  Icons
+3.  Side-nav
 */
 
 //  1
 .waves-effect {
   &.waves-blue .waves-ripple {
-    background-color: rgba(0, 65, 191, 0.76);
+    background-color: $primaryColor-dark;
   }
+}
+
+//  2
+i {
+  &.tinyIcon {
+    font-size: $tinyIcon;
+  }
+}
+
+//  3
+.side-nav {
+  top: 67px !important;
+}
+#sidenav-overlay {
+  top: 67px !important;
 }

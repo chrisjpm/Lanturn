@@ -1,19 +1,34 @@
 <nav class="header">
   <div class="nav-wrapper container">
-    <a href="/"><h4 href="#" class="brand-logo header-title">LanPlan <small>❘ {{pagename}}</small></h4></a>
+
+    <a href="/"><h4 href="#" class="brand-logo header-title">LanPlan <small class="pagename">❘ {{pagename}}</small></h4></a>
 
     <ul class="headernav right hide-on-med-and-down">
-        <li><a href="/#" class="waves-effect waves-blue">Teams</a></li>
-        <li><a href="/#" class="waves-effect waves-blue">Event Calendar</a></li>
-        <li><a href="/#" class="waves-effect waves-blue">Support/Contact</a></li>
+        <li><a href="/#" class="waves-effect waves-blue headerA">Teams</a></li>
+        <li><a href="/#" class="waves-effect waves-blue headerA">Event Calendar</a></li>
+        <li><a href="/#" class="waves-effect waves-blue headerA">Support/Contact</a></li>
+
+        <img class="left userProfImg" src="/images/graphics/def_profile.png" />
+				<li><a class="dropdown-button headerA" href="" data-activates="user-navbardropdown">[username]<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
+
     <ul class="side-nav" id="slide-out">
       <h6 class="nav-header">NAVIGATION</h6>
-      <li><a href="/#" class="waves-effect waves-light blue-text">Teams<i class="material-icons blue-text right">supervisor_account</i></a></li>
-      <li><a href="/#" class="waves-effect waves-light blue-text">Event Calendar<i class="material-icons blue-text right">date_range</i></a></li>
-      <li><a href="/#" class="waves-effect waves-light blue-text">Support/Contact<i class="material-icons blue-text right">question_answer</i></a></li>
+      <li><a href="/#" class="waves-effect waves-light blue-text">Teams<i class="material-icons blue-text right tinyIcon">supervisor_account</i></a></li>
+      <li><a href="/#" class="waves-effect waves-light blue-text">Event Calendar<i class="material-icons blue-text right tinyIcon">date_range</i></a></li>
+      <li><a href="/#" class="waves-effect waves-light blue-text">Support/Contact<i class="material-icons blue-text right tinyIcon">question_answer</i></a></li>
     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse "><i class="mdi-navigation-menu blue-text"></i></a>
+    <a href="#" data-activates="slide-out" class="button-collapse sidebarBtn"><i class="material-icons">sort</i></a>
+
   </div>
+
   <div class="headerborder"></div>
 </nav>
+
+<!-- Account Dropdown -->
+<ul id="user-navbardropdown" class="dropdown-content">
+		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">My Profile</a></li>
+		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Settings</a></li>
+		<li class="divider"></li>
+		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Logout</a></li>
+</ul>

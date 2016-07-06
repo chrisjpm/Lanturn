@@ -11,35 +11,57 @@ nav {
 	h4 {
 		&.header-title {
 			color: $defaultColor;
-			&:hover {
+		}
+
+		small {
+			&.pagename {
+				color: $defaultColor-light;
+			}
+		}
+
+		&:hover {
+			color: $primaryColor;
+			small {
+				&.pagename {
+					color: $secondaryColor;
+				}
+			}
+		}
+	}
+
+	a {
+		cursor: pointer;
+		&.sidebarBtn {
+			color: $defaultColor;
+			&:active {
 				color: $primaryColor;
 			}
 		}
 	}
 
 	ul {
-
 		margin-bottom: -$headerBorderThickness;
 		&.headernav {
-			li {
-				&:hover {
-					background-color: $primaryBgColor;
+			a {
+				&.headerA {
+					vertical-align: top !important;
+					color: $defaultColor;
+					&:hover {
+						background-color: $primaryBgColor;
+						color: $whiteColor;
+						height: auto;
+						transition: ease-in 0.3s;
+					}
 				}
 			}
-			a {
-				vertical-align: top !important;
-				color: $defaultColor;
-				&:hover {
-					background-color: $primaryBgColor;
-					color: $whiteColor;
-					height: auto;
-					transition: ease-in 0.3s;
+			img {
+				&.userProfImg {
+					border-radius: 23px;
+					padding-top: calc((64px - 46px) / 2);
 				}
 			}
 		}
-	}
 
-	ul {
 		&.side-nav {
 			h6 {
 				&.nav-header {
@@ -48,17 +70,12 @@ nav {
 					color: $defaultColor;
 				}
 			}
-
-			i {
-				font-size: $tinyIcon;
-			}
 		}
 	}
 
-}
-
-nav:hover{
-	.headerborder{
-		@include header($primaryBgColor, $headerBorderThickness);
+	&:hover {
+		.headerborder{
+			@include header($primaryBgColor, $headerBorderThickness);
+		}
 	}
 }

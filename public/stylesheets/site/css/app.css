@@ -9,9 +9,20 @@
 */
 /*
 1.  Waves
+2.  Icons
+3.  Side-nav
 */
 .waves-effect.waves-blue .waves-ripple {
-  background-color: rgba(0, 65, 191, 0.76); }
+  background-color: #2d8dd3; }
+
+i.tinyIcon {
+  font-size: 1.2em !important; }
+
+.side-nav {
+  top: 67px !important; }
+
+#sidenav-overlay {
+  top: 67px !important; }
 
 nav {
   background-color: #fff; }
@@ -23,33 +34,41 @@ nav {
     nav .headerborder:hover {
       height: 3px;
       width: 100%;
-      background: #1672b4;
+      background: #6cafe0;
       transition: ease-in 0.3s; }
   nav h4.header-title {
     color: #939393; }
-    nav h4.header-title:hover {
-      color: #1672b4; }
+  nav h4 small.pagename {
+    color: #b9b9b9; }
+  nav h4:hover {
+    color: #6cafe0; }
+    nav h4:hover small.pagename {
+      color: #6db5eb; }
+  nav a {
+    cursor: pointer; }
+    nav a.sidebarBtn {
+      color: #939393; }
+      nav a.sidebarBtn:active {
+        color: #6cafe0; }
   nav ul {
     margin-bottom: -3px; }
-    nav ul.headernav li:hover {
-      background-color: #1672b4; }
-    nav ul.headernav a {
+    nav ul.headernav a.headerA {
       vertical-align: top !important;
       color: #939393; }
-      nav ul.headernav a:hover {
-        background-color: #1672b4;
-        color: #e1e1e1;
+      nav ul.headernav a.headerA:hover {
+        background-color: #6cafe0;
+        color: white;
         height: auto;
         transition: ease-in 0.3s; }
-  nav ul.side-nav h6.nav-header {
-    padding: 15px 0 0 15px !important;
-    margin: 0 !important;
-    color: #939393; }
-  nav ul.side-nav i {
-    font-size: 1.2em !important; }
-
-nav:hover .headerborder {
-  height: 3px;
-  width: 100%;
-  background: #1672b4;
-  transition: ease-in 0.3s; }
+    nav ul.headernav img.userProfImg {
+      border-radius: 23px;
+      padding-top: calc((64px - 46px) / 2); }
+    nav ul.side-nav h6.nav-header {
+      padding: 15px 0 0 15px !important;
+      margin: 0 !important;
+      color: #939393; }
+  nav:hover .headerborder {
+    height: 3px;
+    width: 100%;
+    background: #6cafe0;
+    transition: ease-in 0.3s; }
