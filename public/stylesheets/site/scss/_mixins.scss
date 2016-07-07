@@ -1,15 +1,35 @@
 //  TABLE OF CONTENTS
 /*
-1.  Partials
-  1.1 Header
+1.  Constant Partials
+  1.1  Header
+2.  Body Partials
+  2.1  Index
+    (a)  Sidebars
 */
 
 //  1
-//  1.1
+//    1.1
 @mixin header($borderColor, $borderThickness) {
   height: $borderThickness;
   width: 100%;
 
   background: $borderColor;
   transition: ease-in 0.3s;
+}
+
+//  2
+//    2.1
+//      (a)
+@mixin sidebar($txtAlign, $padding, $left, $right, $width, $bgColor, $color, $boxshadow) {
+  text-align: $txtAlign;
+  padding: $padding;
+  position: fixed;
+  top: 67px;
+  left: $left;
+  right: $right;
+  bottom: 0;
+  width: $width;
+  background: $bgColor;
+  color: $color;
+  box-shadow: $boxshadow;
 }

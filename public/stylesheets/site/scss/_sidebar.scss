@@ -1,0 +1,25 @@
+div {
+  &.left-sb {
+    @include sidebar(left, 10px 25px 0 25px, 0, null, 270px, $defaultBgColor, $primaryColor, inset -85px 0px 50px -90px $defaultShadowColor);
+  }
+
+  &.right-sb {
+    @include sidebar(left, 10px 25px 0 25px, null, 0, 350px, $defaultBgColor, $primaryColor, inset 85px 0px 50px -90px $defaultShadowColor);
+
+    div.card div.card-image {
+      span {
+        &.card-title {
+          color: $primaryColor;
+          background-color: rgba($defaultBgColor, 0.4);
+          padding: 1px;
+        }
+      }
+    }
+
+    div {
+      &.card-reveal {
+          overflow: hidden;
+      }
+    }
+  }
+}
