@@ -2,7 +2,6 @@
 /*
 1.  Waves
 2.  Icons
-3.  Side-nav
 */
 
 //  1
@@ -17,12 +16,4 @@ i {
   &.tinyIcon {
     font-size: $tinyIcon;
   }
-}
-
-//  3
-.side-nav {
-  top: 67px !important;
-}
-#sidenav-overlay {
-  top: 67px !important;
 }
