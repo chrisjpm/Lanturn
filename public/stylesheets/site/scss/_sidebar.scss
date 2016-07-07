@@ -11,6 +11,7 @@ div {
         &.card-title {
           color: $primaryColor;
           background-color: rgba($defaultBgColor, 0.4);
+          border-right: 3px;
           padding: 1px;
         }
       }
