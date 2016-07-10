@@ -79,7 +79,8 @@ div.left-sb {
   width: 270px;
   background: white;
   color: #6cafe0;
-  box-shadow: inset -85px 0px 50px -90px #e9e9e9; }
+  box-shadow: inset -85px 0px 50px -90px #e9e9e9;
+  z-index: 10; }
 
 div.right-sb {
   text-align: left;
@@ -91,7 +92,8 @@ div.right-sb {
   width: 350px;
   background: white;
   color: #6cafe0;
-  box-shadow: inset 85px 0px 50px -90px #e9e9e9; }
+  box-shadow: inset 85px 0px 50px -90px #e9e9e9;
+  z-index: 10; }
   div.right-sb div.card div.card-image span.card-title {
     color: #6cafe0;
     background-color: rgba(255, 255, 255, 0.4);
@@ -115,3 +117,20 @@ div.right-sb {
   right: 0px;
   transform: rotate(90deg);
   -webkit-transform-origin: 100% 109%; }
+
+#mapCanvas {
+  height: calc(100% - 67px);
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute; }
+
+#mapLoading {
+  position: absolute;
+  z-index: 69;
+  width: 256px;
+  height: 256px;
+  top: 50%;
+  left: 50%;
+  margin-top: -128px;
+  margin-left: -128px; }

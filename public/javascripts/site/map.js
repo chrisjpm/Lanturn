@@ -1,11 +1,11 @@
-var socket = io();
+//var socket = io();
 
 $( document ).ready(function() {
-  setMapHeight();
+  //setMapHeight();
 });
 
 $( window ).resize(function() {
-  setMapHeight();
+  //setMapHeight();
   console.log("changeed")
 });
 
@@ -30,23 +30,11 @@ function initialize() {
         map = new google.maps.Map(document.getElementById('mapCanvas'),
         mapOptions);
 
-        //I am an legend
-        var legend = document.createElement("div");
-        legend.id = "legend";
-        var content = [];
-        content.push('<img id="legend-icon" src="public/images/graphics/legend-icon.png">');
-        content.push('<p><img src="public/images/graphics/greenmarker.png"> Looking for players</p>');
-        content.push('<p><img src="public/images/graphics/bluemarker.png"> Starting soon</p>');
-        content.push('<p><img src="public/images/graphics/redmarker.png"> Full</p>');
-
-        legend.innerHTML = content.join('');
-        legend.index = 1;
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 
         var GeoMarker = new GeolocationMarker(map);
         var geoMarkerCircle = new google.maps.Circle({radius: 10});
         geoMarkerCircle.bindTo("center", GeoMarker, "position");
-        socket.emit('scanParties', {"lat":position.coords.latitude, "lng":position.coords.longitude});
+        //socket.emit('scanParties', {"lat":position.coords.latitude, "lng":position.coords.longitude});
         removeLoadingImage();
     }, function() {
       console.log("outcome #2");
@@ -69,27 +57,14 @@ function handleNoGeolocation(){
     map = new google.maps.Map(document.getElementById('mapCanvas'),
     mapOptions);
 
-    //I am an legend
-    var legend = document.createElement("div");
-    legend.id = "legend";
-    var content = [];
-    content.push('<img id="legend-icon" src="public/images/graphics/legend-icon.png">');
-    content.push('<p><img src="public/images/graphics/greenmarker.png"> Looking for players</p>');
-    content.push('<p><img src="public/images/graphics/bluemarker.png"> Starting soon</p>');
-    content.push('<p><img src="public/images/graphics/redmarker.png"> Full</p>');
-
-    legend.innerHTML = content.join('');
-    legend.index = 1;
-    map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
-
-    socket.emit('scanParties', {"lat":20, "lng":-30});
+    //socket.emit('scanParties', {"lat":20, "lng":-30});
     removeLoadingImage();
 }
 
 function setMapHeight(){
-  var headerHeight = $("#headerContainer").height() + parseInt($("#headerContainer").css("border-bottom").split(" ")[0].substr(0, $("#headerContainer").css("border-bottom").indexOf('px')));
-  document.getElementById("wrapper").style.height = ($(document).height() - headerHeight) /$(document).height() * 100 + "%";
-  document.getElementById("mapCanvas").style.height = "100%";
+  var headerHeight = $("#header").height();
+ document.getElementById("wrapper").style.height = ($(document).height() - headerHeight) /$(document).height() * 100 + "%";
+ document.getElementById("mapCanvas").style.height = "100%";
 }
 
 function removeLoadingImage(){
@@ -132,11 +107,11 @@ function addPartyToMap(party){
   });
 }
 
-socket.on('partyScanResult', function(results){
-  console.log(results);
-  for(var i = 0; i < results.length; i++){
-    addPartyToMap(results[i]);
-  }
-});
+//socket.on('partyScanResult', function(results){
+//  console.log(results);
+//  for(var i = 0; i < results.length; i++){
+//    addPartyToMap(results[i]);
+//  }
+//});
 
 google.maps.event.addDomListener(window, 'load', initialize);
