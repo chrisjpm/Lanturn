@@ -6,19 +6,26 @@
 /*
 1.  Constant Partials
   1.1  Header
+  1.2  Footer
 2.  Body Partials
-  2.1  Index
+  2.1  HTML
+    (a)  Scrollbar
+  2.2  Index
     (a)  Sidebars
 */
 /*
 1.  Waves
 2.  Icons
+3.  Cards
 */
 .waves-effect.waves-blue .waves-ripple {
   background-color: #2d8dd3; }
 
 i.tinyIcon {
   font-size: 1.2em !important; }
+
+.card .card-reveal {
+  height: 101% !important; }
 
 nav {
   background-color: #fff; }
@@ -71,7 +78,7 @@ nav {
 
 div.left-sb {
   text-align: left;
-  padding: 10px 25px 0 25px;
+  padding: 15px 15px 60px 15px;
   position: fixed;
   top: 67px;
   left: 0;
@@ -83,7 +90,7 @@ div.left-sb {
 
 div.right-sb {
   text-align: left;
-  padding: 10px 25px 0 25px;
+  padding: 15px 15px 60px 15px;
   position: fixed;
   top: 67px;
   right: 0;
@@ -94,11 +101,19 @@ div.right-sb {
   box-shadow: inset 85px 0px 50px -90px #e9e9e9; }
   div.right-sb div.card div.card-image span.card-title {
     color: #6cafe0;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-right: 3px;
-    padding: 1px; }
+    padding: 1px !important;
+    margin-left: 20px; }
+  div.right-sb div.right-sb-content {
+    height: 100%;
+    overflow-y: scroll; }
   div.right-sb div.card-reveal {
-    overflow: hidden; }
+    overflow-y: scroll; }
+    div.right-sb div.card-reveal h6 {
+      color: #6cafe0; }
+    div.right-sb div.card-reveal p {
+      color: #939393;
+      font-size: 14px;
+      margin: 3px 0 3px 0 !important; }
 
 .toggleRightSb {
   top: 50%;
@@ -115,3 +130,35 @@ div.right-sb {
   right: 0px;
   transform: rotate(90deg);
   -webkit-transform-origin: 100% 109%; }
+
+.right-sb-content::-webkit-scrollbar, .left-sb-content::-webkit-scrollbar {
+  width: 0 !important; }
+
+html ::-webkit-scrollbar {
+  width: 5px;
+  padding-left: 10px; }
+
+html ::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.4); }
+
+html ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.7); }
+
+html ::-webkit-scrollbar-thumb:hover {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #abd1ed; }
+
+html ::-webkit-scrollbar-thumb:active {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #6cafe0; }
+
+html ::-webkit-scrollbar-thumb:window-inactive {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.2); }

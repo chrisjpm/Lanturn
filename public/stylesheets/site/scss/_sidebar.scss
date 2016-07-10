@@ -1,25 +1,36 @@
 div {
   &.left-sb {
-    @include sidebar(left, 10px 25px 0 25px, 0, null, 270px, $defaultBgColor, $primaryColor, inset -85px 0px 50px -90px $defaultShadowColor);
+    @include sidebar(left, 15px 15px 60px 15px, 0, null, 270px, $defaultBgColor, $primaryColor, inset -85px 0px 50px -90px $defaultShadowColor);
   }
 
   &.right-sb {
-    @include sidebar(left, 10px 25px 0 25px, null, 0, 350px, $defaultBgColor, $primaryColor, inset 85px 0px 50px -90px $defaultShadowColor);
+    @include sidebar(left, 15px 15px 60px 15px, null, 0, 350px, $defaultBgColor, $primaryColor, inset 85px 0px 50px -90px $defaultShadowColor);
 
     div.card div.card-image {
       span {
         &.card-title {
           color: $primaryColor;
-          background-color: rgba($defaultBgColor, 0.4);
-          border-right: 3px;
-          padding: 1px;
+          padding: 1px !important;
+          margin-left: 20px;
         }
       }
     }
 
     div {
+      &.right-sb-content {
+        height: 100%;
+        overflow-y: scroll;
+      }
       &.card-reveal {
-          overflow: hidden;
+          overflow-y: scroll;
+          h6 {
+            color: $primaryColor;
+          }
+          p {
+            color: $defaultColor;
+            font-size: 14px;
+            margin: 3px 0 3px 0!important;
+          }
       }
     }
   }
@@ -33,6 +44,7 @@ div {
   transform: rotate(270deg);
   -webkit-transform-origin: 0 109%;
 }
+
 .toggleLeftSb{
   top: 50%;
   width: 150px;
@@ -40,4 +52,8 @@ div {
   right: 0px;
   transform: rotate(90deg);
   -webkit-transform-origin: 100% 109%;
+}
+
+.right-sb-content::-webkit-scrollbar, .left-sb-content::-webkit-scrollbar {
+    width: 0 !important;
 }

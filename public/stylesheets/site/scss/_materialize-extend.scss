@@ -2,6 +2,7 @@
 /*
 1.  Waves
 2.  Icons
+3.  Cards
 */
 
 //  1
@@ -16,4 +17,9 @@ i {
   &.tinyIcon {
     font-size: $tinyIcon;
   }
+}
+
+//  3
+.card .card-reveal {
+  height: 101% !important;
 }

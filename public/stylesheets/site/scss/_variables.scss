@@ -25,11 +25,17 @@ $alertColor: rgb(231, 219, 58);
 $errorColor: rgb(180, 48, 48);
 $disabledColor: rgb(185, 185, 185);
 $whiteColor: rgb(255, 255, 255);
+$blackColor: rgb(0, 0, 0);
 
 $tinyIcon: 1.2em !important;
 
 //  2
 $defaultBgColor: rgb(255, 255, 255) !default;
+
+$greyBgColor: rgb(147, 147, 147) !default;
+
+$greyBgColor-light: lighten($greyBgColor, 15%);
+$greyBgColor-dark: darken($greyBgColor, 15%);
 
 $primaryBgColor: rgb(108, 175, 224);
 $secondaryBgColor: rgb(109, 181, 235);

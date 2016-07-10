@@ -2,8 +2,11 @@
 /*
 1.  Constant Partials
   1.1  Header
+  1.2  Footer
 2.  Body Partials
-  2.1  Index
+  2.1  HTML
+    (a)  Scrollbar
+  2.2  Index
     (a)  Sidebars
 */
 
@@ -16,9 +19,46 @@
   background: $borderColor;
   transition: ease-in 0.3s;
 }
+//    1.2
 
 //  2
 //    2.1
+//      (a)
+@mixin scrollbarDefault($defaultSbColor, $hoverSbColor, $activeSbColor) {
+  ::-webkit-scrollbar {
+      width: 5px;
+      padding-left: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.7);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: $primaryBgColor-light;
+  }
+  ::-webkit-scrollbar-thumb:active {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: $primaryBgColor;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.2);
+  }
+}
+
+//    2.2
 //      (a)
 @mixin sidebar($txtAlign, $padding, $left, $right, $width, $bgColor, $color, $boxshadow) {
   text-align: $txtAlign;
