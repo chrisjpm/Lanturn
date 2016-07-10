@@ -58,22 +58,22 @@ app.use(function(req, res, next) {
 // error handlers
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}else{
-  app.get('*',function(req,res,next){
-  if(req.headers['x-forwarded-proto']!='https')
-    res.redirect('https://www.lanturn.net'+req.url)
-  else
-    next() /* Continue to other routes if we're not redirecting */
-})
-}
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }else{
+//   app.get('*',function(req,res,next){
+//   if(req.headers['x-forwarded-proto']!='https')
+//     res.redirect('https://www.lanturn.net'+req.url)
+//   else
+//     next() /* Continue to other routes if we're not redirecting */
+// })
+// }
 
 // production error handler
 // no stacktraces leaked to user
@@ -91,6 +91,6 @@ function userView(req, res, next) {
 }
 
 server.listen(process.env.PORT || 80);
-secureServer.listen(httpsPort);
+//secureServer.listen(httpsPort);
 
 module.exports = app;
