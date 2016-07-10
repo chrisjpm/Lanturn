@@ -1,13 +1,5 @@
 //var socket = io();
 
-$( document ).ready(function() {
-  //setMapHeight();
-});
-
-$( window ).resize(function() {
-  //setMapHeight();
-  console.log("changeed")
-});
 
 $(function() {
     $('body').mousedown(function(e){if(e.button==1)return false});
@@ -59,12 +51,6 @@ function handleNoGeolocation(){
 
     //socket.emit('scanParties', {"lat":20, "lng":-30});
     removeLoadingImage();
-}
-
-function setMapHeight(){
-  var headerHeight = $("#header").height();
- document.getElementById("wrapper").style.height = ($(document).height() - headerHeight) /$(document).height() * 100 + "%";
- document.getElementById("mapCanvas").style.height = "100%";
 }
 
 function removeLoadingImage(){

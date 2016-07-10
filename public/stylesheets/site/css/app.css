@@ -28,7 +28,9 @@ i.tinyIcon {
   height: 101% !important; }
 
 nav {
-  background-color: #fff; }
+  background-color: #fff;
+  position: relative;
+  z-index: 11; }
   nav .headerborder {
     height: 3px;
     width: 100%;

@@ -1,6 +1,7 @@
 nav {
 	background-color: $headerBgColor;
-
+	position: relative;
+	z-index:11;
 	.headerborder {
 		@include header($disabledBgColor, $headerBorderThickness);
 		&:hover {

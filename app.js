@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var hbs = require('hbs');
@@ -7,13 +8,21 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var https = require('https');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
 require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
+var httpsPort = 443;
+var httpsOptions = {
+  key: fs.readFileSync('certs/lanturn.key'),
+  cert: fs.readFileSync('certs/www.lanturn.net.pem')
+};
+
 var app = express();
 var server = require('http').createServer(app);
+var secureServer = https.createServer(httpsOptions, app);
 
 var io = require("./routes/sockets/sockets")(server);
 
@@ -82,4 +91,6 @@ function userView(req, res, next) {
 }
 
 server.listen(process.env.PORT || 80);
+secureServer.listen(httpsPort);
+
 module.exports = app;

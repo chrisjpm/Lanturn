@@ -24,3 +24,14 @@ exports.getPartiesInSetRadius = function(coords, callback){
     return callback(err, parties);
   });
 }
+
+exports.getPartyInfo = function(id, callback){
+  var PartySchema = require('../models/party');
+  var PartyModel = db.model('party', PartySchema);
+
+  var query = PartyModel.findOne({
+    _id: id
+  }, {address:0}).exec(function(err, party){
+    return callback(err, party);
+  });
+}
