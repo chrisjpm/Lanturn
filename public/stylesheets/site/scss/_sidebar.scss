@@ -1,10 +1,10 @@
 div {
   &.left-sb {
-    @include sidebar(left, 15px 15px 60px 15px, 0, null, 270px, $defaultBgColor, $primaryColor, inset -85px 0px 50px -90px $defaultShadowColor);
+    @include sidebar(left, 15px 15px 60px 15px, 0, null, 270px, $defaultBgColor, $primaryColor, -20px 22px 80px 10px $defaultShadowColor);
   }
 
   &.right-sb {
-    @include sidebar(left, 15px 15px 60px 15px, null, 0, 350px, $defaultBgColor, $primaryColor, inset 85px 0px 50px -90px $defaultShadowColor);
+    @include sidebar(left, 15px 15px 60px 15px, null, 0, 350px, $defaultBgColor, $primaryColor, 20px 22px 80px 10px $defaultShadowColor);
 
     div.card div.card-image {
       span {
@@ -55,5 +55,5 @@ div {
 }
 
 .right-sb-content::-webkit-scrollbar, .left-sb-content::-webkit-scrollbar {
-    width: 0 !important;
+    width: 0px !important;
 }
