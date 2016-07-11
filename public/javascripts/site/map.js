@@ -82,6 +82,7 @@ function addPartyToMap(party){
   google.maps.event.addListener(marker, 'click', function() {
       socket.emit('getParty', marker["party"]);
       console.log("party id: " +marker["party"]);
+      map.panTo(marker.getPosition());
       preparePartyInfoSidebar();
   });
 }
