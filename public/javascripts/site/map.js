@@ -93,7 +93,66 @@ function preparePartyInfoSidebar(){
 }
 
 function loadPartyInfo(party){
+  var partyName = party.name;
 
+  var partyAddressLine1 = party.addressLine1;
+  var partyAddressLine2 = party.addressLine2;
+  var partyAddressCity = party.addressCity;
+  var partyAddressZip = party.addressZip;
+
+  var partyDate = party.date;
+  var partyHost = party.owner_username;
+  var partyHostPage = "https://www.lanturn.net/user/"+partyHost;
+  var partyPage = "https://www.lanturn.net/party/" + party._id;
+
+  var partyGameInfo = party.game_info;
+  var partyType = party.type;
+  var partyPrize = party.prize;
+  var partyPlayerCount = party.attendants.length+"/"+party.maxAttendants;
+
+  var partyMapImage = "https://maps.googleapis.com/maps/api/staticmap?center=55.823896,-4.2753191&zoom=16&size=340x157&maptype=roadmap&markers=icon:http://www.lanturn.net/images/graphics/greenmarker.png%7C55.823896,-4.2753191"
+  var partyCustomImage = party.image;
+  if(partyCustomImage == ""){partyCustomImage = "https://pbs.twimg.com/media/Ca74zsMXEAAPkoO.png";}
+
+  var partyDescHeader1 = party.descriptionHeader1;
+  var partyDescHeader2 = party.descriptionHeader2;
+  var partyDescHeader3 = party.descriptionHeader3;
+
+  var partyDescSub1 = party.descriptionSub1;
+  var partyDescSub2 = party.descriptionSub2;
+  var partyDescSub3 = party.descriptionSub3;
+
+  $("#partyside_name").text(partyName);
+  $("#partyside_name2").text(partyName);
+
+  $("#partyside_addressline1").text(partyAddressLine1);
+  $("#partyside_addressline2").text(partyAddressLine2);
+  $("#partyside_addresszip").text(partyAddressZip);
+  $("#partyside_addresscity").text(partyAddressCity);
+
+  $("#partyside_datetime").text(partyDate);
+  $("#partyside_host").text(partyHost);
+  $("#partyside_host").attr("href",partyHostPage);
+  $("#partyside_page").attr("href",partyPage);
+
+  $("#partyside_game").text(partyGameInfo.name);
+  $("#partyside_game2").text(partyGameInfo.name);
+  $("#partyside_gameImage").attr("src",partyGameInfo.image);
+  $("#partyside_gameurl").attr("href",partyGameInfo.url);
+  $("#partyside_type").text(partyType);
+  $("#partyside_prize").text(partyPrize);
+  $("#partyside_playercount").text(partyPlayerCount);
+
+  $("#partyside_customimage").attr("src",partyCustomImage);
+  $("#partyside_descheader1").text(partyDescHeader1);
+  $("#partyside_descheader2").text(partyDescHeader2);
+  $("#partyside_descheader3").text(partyDescHeader3);
+  $("#partyside_descsub1").text(partyDescSub1);
+  $("#partyside_descsub2").text(partyDescSub2);
+  $("#partyside_descsub3").text(partyDescSub3);
+
+  //JUST LINKS TO HOST PROFILE
+  $("#partyside_guild").attr("href", partyHostPage);
 }
 
 socket.on('partyScanResult', function(results){
