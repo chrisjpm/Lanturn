@@ -24,9 +24,43 @@
 //  2
 //    2.1
 //      (a)
-@mixin scrollbarDefault($defaultSbColor, $hoverSbColor, $activeSbColor) {
+@mixin scrollbar-y($defaultSbColor, $hoverSbColor, $activeSbColor) {
   ::-webkit-scrollbar {
       width: 5px;
+      padding-left: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.7);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: $primaryBgColor-light;
+  }
+  ::-webkit-scrollbar-thumb:active {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: $primaryBgColor;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: rgba($greyBgColor, 0.2);
+  }
+}
+
+@mixin scrollbar-x($defaultSbColor, $hoverSbColor, $activeSbColor) {
+  ::-webkit-scrollbar {
+      height: 5px;
       padding-left: 10px;
   }
 
@@ -73,4 +107,23 @@
   color: $color;
   box-shadow: $boxshadow;
   z-index: 10;
+}
+
+@mixin players() {
+  position: relative;
+  padding: 4px;
+  margin-left: -57px;
+  font-size: 11px;
+}
+
+@mixin players-status($bgColor) {
+  background-color: $bgColor;
+  border-radius: 12px;
+  border: $defaultBgColor 2px solid;
+}
+
+@mixin players-img($borderColor) {
+  height: 44px;
+  border: $borderColor 2px solid; //rank
+  border-radius: 50%;
 }
