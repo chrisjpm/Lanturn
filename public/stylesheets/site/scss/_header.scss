@@ -51,14 +51,22 @@ nav {
 						background-color: $primaryBgColor;
 						color: $whiteColor;
 						height: auto;
-						transition: ease-in 0.3s;
+						transition: ease-in 0.6s;
 					}
+				}
+				&.iconA {
+					vertical-align: top !important;
+					color: $defaultColor;
+					&:hover {
+						color: $primaryColor;
+						transition: ease-in 0.3s;
+					} // make this 'on notification received'
 				}
 			}
 			img {
-				&.userProfImg {
+				&.userProfImgHeader {
 					border-radius: 23px;
-					padding-top: calc((64px - 46px) / 2);
+					margin-top: calc((64px - 46px) / 2);
 				}
 			}
 		}

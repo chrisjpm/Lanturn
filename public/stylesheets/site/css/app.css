@@ -17,15 +17,26 @@
 1.  Waves
 2.  Icons
 3.  Cards
+4.  Sidenav
+5.  Contianer
 */
 .waves-effect.waves-blue .waves-ripple {
   background-color: #2d8dd3; }
+
+i.smallIcon {
+  font-size: 1.8em !important; }
 
 i.tinyIcon {
   font-size: 1.2em !important; }
 
 .card .card-reveal {
   height: 101% !important; }
+
+#sidenav-overlay {
+  z-index: auto !important; }
+
+.container {
+  width: 85% !important; }
 
 nav {
   background-color: #fff;
@@ -64,10 +75,16 @@ nav {
         background-color: #6cafe0;
         color: white;
         height: auto;
+        transition: ease-in 0.6s; }
+    nav ul.headernav a.iconA {
+      vertical-align: top !important;
+      color: #939393; }
+      nav ul.headernav a.iconA:hover {
+        color: #6cafe0;
         transition: ease-in 0.3s; }
-    nav ul.headernav img.userProfImg {
+    nav ul.headernav img.userProfImgHeader {
       border-radius: 23px;
-      padding-top: calc((64px - 46px) / 2); }
+      margin-top: calc((64px - 46px) / 2); }
     nav ul.side-nav h6.nav-header {
       padding: 15px 0 0 15px !important;
       margin: 0 !important;
@@ -80,26 +97,26 @@ nav {
 
 div.left-sb {
   text-align: left;
-  padding: 15px 15px 60px 15px;
+  padding: 10px 15px 60px 15px;
   position: fixed;
   top: 67px;
   left: 0;
   bottom: 0;
   width: 270px;
-  background: white;
+  background: #f9f9f9;
   color: #6cafe0;
   box-shadow: -20px 22px 80px 10px #424242;
   z-index: 10; }
 
 div.right-sb {
   text-align: left;
-  padding: 15px 15px 60px 15px;
+  padding: 10px 15px 60px 15px;
   position: fixed;
   top: 67px;
   right: 0;
   bottom: 0;
   width: 350px;
-  background: white;
+  background: #f9f9f9;
   color: #6cafe0;
   box-shadow: 20px 22px 80px 10px #424242;
   z-index: 10; }
@@ -118,10 +135,52 @@ div.right-sb {
       color: #939393;
       font-size: 14px;
       margin: 3px 0 3px 0 !important; }
+    div.right-sb div.card-reveal div.players-cardContainer {
+      width: 300px;
+      height: auto;
+      padding-top: 8px;
+      overflow: auto; }
+      div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard {
+        height: 44px;
+        border: #939393 2px solid;
+        border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank1 {
+          height: 44px;
+          border: #939393 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank2 {
+          height: 44px;
+          border: #44af2e 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank3 {
+          height: 44px;
+          border: #a3c5f9 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank4 {
+          height: 44px;
+          border: #683391 2px solid;
+          border-radius: 50%; }
+      div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard {
+        position: relative;
+        padding: 4px;
+        margin-left: -57px;
+        font-size: 11px; }
+        div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
+          background-color: #939393;
+          border-radius: 12px;
+          border: white 2px solid; }
+        div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.online {
+          background-color: #6cafe0;
+          border-radius: 12px;
+          border: white 2px solid; }
+      div.right-sb div.card-reveal div.players-cardContainer div.player {
+        padding-left: 20px;
+        padding-bottom: 20px;
+        display: inline-block; }
 
 .toggleRightSb {
   top: 50%;
-  width: 150px;
+  width: 185px;
   position: absolute;
   left: 0px;
   transform: rotate(270deg);
@@ -129,7 +188,7 @@ div.right-sb {
 
 .toggleLeftSb {
   top: 50%;
-  width: 150px;
+  width: 185px;
   position: absolute;
   right: 0px;
   transform: rotate(90deg);
@@ -140,6 +199,35 @@ div.right-sb {
 
 html ::-webkit-scrollbar {
   width: 5px;
+  padding-left: 10px; }
+
+html ::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.4); }
+
+html ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.7); }
+
+html ::-webkit-scrollbar-thumb:hover {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #abd1ed; }
+
+html ::-webkit-scrollbar-thumb:active {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #6cafe0; }
+
+html ::-webkit-scrollbar-thumb:window-inactive {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.2); }
+
+html ::-webkit-scrollbar {
+  height: 5px;
   padding-left: 10px; }
 
 html ::-webkit-scrollbar-track {

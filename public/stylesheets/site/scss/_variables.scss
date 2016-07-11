@@ -27,14 +27,15 @@ $disabledColor: rgb(185, 185, 185);
 $whiteColor: rgb(255, 255, 255);
 $blackColor: rgb(0, 0, 0);
 
+$smallIcon: 1.8em !important;
 $tinyIcon: 1.2em !important;
 
 //  2
 $defaultBgColor: rgb(255, 255, 255) !default;
 
-$greyBgColor: rgb(147, 147, 147) !default;
+$greyBgColor: rgb(147, 147, 147);
 
-$greyBgColor-light: lighten($greyBgColor, 15%);
+$greyBgColor-light: lighten($greyBgColor, 40%);
 $greyBgColor-dark: darken($greyBgColor, 15%);
 
 $primaryBgColor: rgb(108, 175, 224);
@@ -52,6 +53,11 @@ $succesBgColor-light: lighten($succesBgColor, 15%);
 $alertBgColor-light: lighten($alertBgColor, 15%);
 $errorBgColor-light: lighten($errorBgColor, 15%);
 $disabledBgColor-light: lighten($disabledBgColor, 15%);
+
+$rank1BgColor: rgb(147, 147, 147); //until rename
+$rank2BgColor: rgb(68, 175, 46); //until rename
+$rank3BgColor: rgb(163, 197, 249); //until rename
+$rank4BgColor: rgb(104, 51, 145); //until rename
 
 $defaultShadowColor: rgb(66, 66, 66);
 

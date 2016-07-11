@@ -3,6 +3,8 @@
 1.  Waves
 2.  Icons
 3.  Cards
+4.  Sidenav
+5.  Contianer
 */
 
 //  1
@@ -14,6 +16,9 @@
 
 //  2
 i {
+  &.smallIcon {
+    font-size: $smallIcon;
+  }
   &.tinyIcon {
     font-size: $tinyIcon;
   }
@@ -22,4 +27,14 @@ i {
 //  3
 .card .card-reveal {
   height: 101% !important;
+}
+
+//  4
+#sidenav-overlay {
+  z-index: auto !important;
+}
+
+//  5
+.container {
+    width: 85% !important;
 }
