@@ -9,4 +9,12 @@ module.exports = function(socket){
           }
       });
   });
+
+  socket.on('getParty', function(partyID) {
+    partyQuery.getPartyInfo(partyID, function(err, partyInfo){
+      if(!err && partyInfo){
+        socket.emit('getPartyResult',partyInfo);
+      }
+    });
+  });
 }

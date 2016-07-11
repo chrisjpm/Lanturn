@@ -20,7 +20,7 @@ exports.getPartiesInSetRadius = function(coords, callback){
       $near: coordArr,
       $maxDistance: maxDistance
     }
-  }, {address:0}).exec(function(err, parties){
+  }, {owner_username:0,owner_username_lower:0,game_info:0,address:0,description:0}).exec(function(err, parties){
     return callback(err, parties);
   });
 }
