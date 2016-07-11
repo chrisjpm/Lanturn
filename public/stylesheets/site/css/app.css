@@ -168,7 +168,7 @@ html ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(147, 147, 147, 0.2); }
 
 #mapCanvas {
-  height: calc(100% - 67px);
+  height: 100%;
   left: 0px;
   right: 0px;
   bottom: 0px;
