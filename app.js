@@ -91,6 +91,6 @@ function userView(req, res, next) {
 }
 
 server.listen(process.env.PORT || 80);
-//secureServer.listen(httpsPort);
+secureServer.listen(httpsPort);
 
 module.exports = app;
