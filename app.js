@@ -21,10 +21,10 @@ var httpsOptions = {
 };
 
 var app = express();
-var server = require('http').createServer(app);
+//var server = require('http').createServer(app);
 var secureServer = https.createServer(httpsOptions, app);
 
-var io = require("./routes/sockets/sockets")(server);
+var io = require("./routes/sockets/sockets")(secureServer);
 
 var routes = require('./routes/routes.js');
 
