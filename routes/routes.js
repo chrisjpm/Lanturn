@@ -8,5 +8,6 @@ router.use('/signup', require('./signup'));
 router.use('/logout', require('./logout'));
 router.use('/create', require('./create'));
 router.use('/verify_email', require('./verify_email'));
+router.use('/gitwebhook', require('./gitwebhook'));
 
 module.exports = router;
