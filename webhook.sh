@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yes | git pull "origin" hbs-frontend
+git pull "origin" hbs-frontend
 npm install
 
 return
