@@ -96,7 +96,7 @@ function setCustomAddress(address){
   var geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var myOptions = {
-    center: { lat: position.coords.latitude, lng: position.coords.longitude},
+    center: { lat: 0, lng: 0},
     zoom: 15,
     disableDefaultUI: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP
