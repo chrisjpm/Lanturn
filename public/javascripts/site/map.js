@@ -92,6 +92,37 @@ function preparePartyInfoSidebar(){
   //ADD PARTY INFO LOADING ANIMATION
 }
 
+function setCustomAddress(address){
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var myOptions = {
+    center: { lat: position.coords.latitude, lng: position.coords.longitude},
+    zoom: 15,
+    disableDefaultUI: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
+
+  if (geocoder) {
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+            map.setCenter(results[0].geometry.location);
+
+            var GeoMarker = new GeolocationMarker(map);
+            var geoMarkerCircle = new google.maps.Circle({radius: 10});
+            geoMarkerCircle.bindTo("center", GeoMarker, "position");
+
+          } else {
+            alert("No results found");
+          }
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+}
+
 function loadPartyInfo(party){
   var partyName = party.name;
 
