@@ -21,10 +21,10 @@ var httpsOptions = {
 };
 
 var app = express();
-//var server = require('http').createServer(app);
-var secureServer = https.createServer(httpsOptions, app);
+var server = require('http').createServer(app);
+//var secureServer = https.createServer(httpsOptions, app);
 
-var io = require("./routes/sockets/sockets")(secureServer);
+var io = require("./routes/sockets/sockets")(server);
 
 var routes = require('./routes/routes.js');
 
@@ -90,7 +90,7 @@ function userView(req, res, next) {
     next();
 }
 
-//server.listen(process.env.PORT || 80);
-secureServer.listen(httpsPort);
+server.listen(process.env.PORT || 80);
+//secureServer.listen(httpsPort);
 
 module.exports = app;
