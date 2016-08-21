@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var hbs = require('hbs');
 var constants = require('constants');
+var helmet = require('helmet');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -80,6 +81,13 @@ app.use(function(req, res, next) {
 //     next() /* Continue to other routes if we're not redirecting */
 // })
 // }
+
+var ONE_YEAR = 31536000000;
+app.use(helmet.hsts({
+    maxAge: ONE_YEAR,
+    includeSubdomains: true,
+    force: true
+}));
 
 // production error handler
 // no stacktraces leaked to user
