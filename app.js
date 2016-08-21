@@ -4,6 +4,7 @@ var fs = require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var hbs = require('hbs');
+var constants = require('constants');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -16,6 +17,8 @@ require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
 var httpsPort = 443;
 var httpsOptions = {
+    secureOptions: constants.SSL_OP_NO_SSLv3 | constants.SSL_OP_NO_SSLv2,
+
     key: fs.readFileSync('./certs/myserver1.key'),
     cert: fs.readFileSync('./certs/lanturn_net.crt'),
     ca: [fs.readFileSync('./certs/ln1.crt'), fs.readFileSync('./certs/ln2.crt')]
