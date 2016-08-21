@@ -82,7 +82,7 @@ app.use(function(req, res, next) {
 // })
 // }
 
-http.all('*', function(req, res) {
+server.all('*', function(req, res) {
   return res.redirect("https://" + req.headers["host"] + req.url);
 });
 
