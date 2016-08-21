@@ -16,13 +16,16 @@ require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
 var httpsPort = 443;
 var httpsOptions = {
-  key: fs.readFileSync('certs/lanturn.key'),
-  cert: fs.readFileSync('certs/www.lanturn.net.pem')
+  key: fs.readFileSync('./certs/server.key'),
+    cert: fs.readFileSync('./certs/server.crt'),
+    ca: fs.readFileSync('./certs/ca.crt'),
+    requestCert: true,
+    rejectUnauthorized: false
 };
 
 var app = express();
 var server = require('http').createServer(app);
-//var secureServer = https.createServer(httpsOptions, app);
+var secureServer = https.createServer(httpsOptions, app);
 
 var io = require("./routes/sockets/sockets")(server);
 
@@ -91,6 +94,6 @@ function userView(req, res, next) {
 }
 
 server.listen(process.env.PORT || 80);
-//secureServer.listen(httpsPort);
+secureServer.listen(httpsPort);
 
 module.exports = app;
