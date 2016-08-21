@@ -16,11 +16,11 @@ require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
 var httpsPort = 443;
 var httpsOptions = {
-  key: fs.readFileSync('./certs/server.key'),
-    cert: fs.readFileSync('./certs/server.crt'),
-    ca: fs.readFileSync('./certs/ca.crt'),
-    requestCert: true,
-    rejectUnauthorized: false
+    key: fs.readFileSync('./certs/myserver1.key'),
+    certificate: fs.readFileSync('./certs/lanturn_net.crt'),
+    ca: [fs.readFileSync('./certs/ln1.crt'), fs.readFileSync('./certs/ln2.crt')]
+    //requestCert: true,
+    //rejectUnauthorized: false
 };
 
 var app = express();
