@@ -67,6 +67,11 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.use(function(req, res, next) {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000");
+    return next();
+});
+
 // error handlers
 // development error handler
 // will print stacktrace
