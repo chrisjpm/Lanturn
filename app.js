@@ -28,10 +28,15 @@ var httpsOptions = {
 };
 
 var app = express();
-var server = require('http').createServer(app);
+var server = require("http").createServer(function(req, res){
+     res.writeHead(301, {
+       'Content-Type': 'text/plain',
+       'Location':'https://'+req.headers.host+req.url
+     res.end('Redirecting to SSL\n');
+  });
 var secureServer = https.createServer(httpsOptions, app);
 
-var io = require("./routes/sockets/sockets")(server);
+var io = require("./routes/sockets/sockets")(secureServer);
 
 var routes = require('./routes/routes.js');
 
@@ -81,13 +86,6 @@ app.use(function(req, res, next) {
 //     next() /* Continue to other routes if we're not redirecting */
 // })
 // }
-app.get('*',function(req,res,next){
-   if(req.headers['x-forwarded-proto']!='https')
-     res.redirect('https://www.lanturn.net'+req.url)
-   else
-     next() /* Continue to other routes if we're not redirecting */
-});
-
 
 var ONE_YEAR = 31536000000;
 app.use(helmet.hsts({
