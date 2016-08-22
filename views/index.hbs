@@ -14,73 +14,7 @@
 {{>leftSb}}
 
 <!-- Right -->
-<div class="right-sb">
-    <h6>PARTY INFORMATION</h6>
-
-    <div class="right-sb-content">
-      <div class="card card-partyinfo">
-          <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" id="partyside_mapimage" src="/images/graphics/partymap-holder.PNG">
-              <span class="activator card-title" id="partyside_name">[partyname]</span>
-          </div>
-          <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4" id="partyside_name2">[partyname]<i class="material-icons right">close</i></span>
-              <h6>ADDRESS</h6>
-              <p id="partyside_addressline1">[LINE 1 LOCKED]</p>
-              <p id="partyside_addressline2">[LINE 2 LOCKED]</p>
-              <p id="partyside_addresszip">[POST/ZIP CODE LOCKED]</p>
-              <p id="partyside_addresscity">[city]</p>
-              <h6>DATE / TIME</h6>
-              <p id="partyside_datetime">[date] / [time]</p>
-              <h6>HOST</h6>
-              <p><a href="" id="partyside_host">@[username]</a></p>
-          </div>
-          <div class="card-action">
-              <a href="#" id="partyside_page">GO TO PARTY PAGE</a>
-          </div>
-      </div>
-
-      <div class="card card-gameinfo">
-          <div class="card-image waves-effect waves-block waves-light">
-              <span class="activator card-title" id="partyside_game">[gamename]</span>
-          </div>
-          <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4" id="partyside_game2">[gamename]<i class="material-icons right">close</i></span>
-              <h6>PARTY TYPE</h6>
-              <p id="partyside_type">[type]</p>
-              <h6>PRIZE POOL</h6>
-              <p id="partyside_prize">[pool(if applicable)]</p>
-              <h6>PLAYERS</h6>
-              <p id="partyside_playercount">[x/y]</p>
-              <p>[list of names and prof pics]</p>
-          </div>
-          <div class="card-action">
-              <a href="#"id="partyside_gameurl">GO TO OFFICIAL GAME SITE</a>
-          </div>
-      </div>
-
-      <div class="card card-desc">
-          <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" id="partyside_customimage" src="https://pbs.twimg.com/media/Ca74zsMXEAAPkoO.png">
-              <span class="activator card-title">Description</span>
-          </div>
-          <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
-              <h6 id="partyside_descheader1">[custom subheader]</h6>
-              <p id="partyside_descsub1">[...]</p>
-              <h6 id="partyside_descheader2">[custom subheader]</h6>
-              <p id="partyside_descsub2">[...]</p>
-              <h6 id="partyside_descheader3">[custom subheader]</h6>
-              <p id="partyside_descsub3">[...]</p>
-          </div>
-          <div class="card-action">
-              <a href="#" id="partyside_guild">GO TO GUILD PAGE</a> <!-- link to lanturn prof if no page -->
-          </div>
-      </div>
-    </div>
-
-    <a href="#" class="toggleRightSb btn blue white-text">Party Info</a>
-</div>
+{{>rightSb}}
 
 
 <img id="mapLoading" src="/images/graphics/maploading.gif">
