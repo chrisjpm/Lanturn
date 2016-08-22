@@ -68,7 +68,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-    res.setHeader("Strict-Transport-Security", "max-age=31536000");
+    res.setHeader("Strict-Transport-Security", "max-age=31536000000");
     return next();
 });
 
