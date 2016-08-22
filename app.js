@@ -81,10 +81,13 @@ app.use(function(req, res, next) {
 //     next() /* Continue to other routes if we're not redirecting */
 // })
 // }
-
-server.all('*', function(req, res) {
-  return res.redirect("https://" + req.headers["host"] + req.url);
+app.get('*',function(req,res,next){
+   if(req.headers['x-forwarded-proto']!='https')
+     res.redirect('https://www.lanturn.net'+req.url)
+   else
+     next() /* Continue to other routes if we're not redirecting */
 });
+
 
 var ONE_YEAR = 31536000000;
 app.use(helmet.hsts({
