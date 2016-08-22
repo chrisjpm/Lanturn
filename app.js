@@ -31,7 +31,7 @@ var app = express();
 var server = require("http").createServer(function(req, res){
      res.writeHead(301, {
        'Content-Type': 'text/plain',
-       'Location':'https://'+req.headers.host+req.url
+       'Location':'https://'+req.headers.host+req.url });
      res.end('Redirecting to SSL\n');
   });
 var secureServer = https.createServer(httpsOptions, app);
