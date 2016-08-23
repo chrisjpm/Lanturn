@@ -1,4 +1,4 @@
-var socket = io.connect("https://lanturn.net");
+var socket = io();
 
 
 $(function() {
