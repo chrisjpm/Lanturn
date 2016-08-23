@@ -28,12 +28,17 @@ var httpsOptions = {
 };
 
 var app = express();
-var server = require("http").createServer(function(req, res){
-     res.writeHead(301, {
-       'Content-Type': 'text/plain',
-       'Location':'https://'+req.headers.host+req.url });
-     res.end('Redirecting to SSL\n');
-  });
+var server;
+if (app.get('env') !== 'development') {
+  server = require("http").createServer(function(req, res){
+       res.writeHead(301, {
+         'Content-Type': 'text/plain',
+         'Location':'https://'+req.headers.host+req.url });
+       res.end('Redirecting to SSL\n');
+    });
+}else{
+  server = require('http').createServer(app);
+}
 var secureServer = https.createServer(httpsOptions, app);
 
 var io = require("./routes/sockets/sockets")(secureServer);
@@ -67,10 +72,13 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.use(function(req, res, next) {
+if (app.get('env') !== 'development') {
+   app.use(function(req, res, next) {
     res.setHeader("Strict-Transport-Security", "max-age=31536000000");
     return next();
-});
+  });
+}
+
 
 // error handlers
 // development error handler
