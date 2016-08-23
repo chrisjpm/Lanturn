@@ -59,6 +59,7 @@ app.use(cookieParser());
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
 app.use(session({ secret: 'dankmemeskhalifakappaAappa' }));
 app.use(passport.initialize());
 app.use(passport.session());
