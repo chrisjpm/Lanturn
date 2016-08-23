@@ -7,6 +7,7 @@
 1.  Constant Partials
   1.1  Header
   1.2  Footer
+  1.3  Text
 2.  Body Partials
   2.1  HTML
     (a)  Scrollbar
@@ -136,10 +137,9 @@ div.right-sb {
       font-size: 14px;
       margin: 3px 0 3px 0 !important; }
     div.right-sb div.card-reveal div.players-cardContainer {
-      width: 300px;
+      width: 100%;
       height: auto;
-      padding-top: 8px;
-      overflow: auto; }
+      padding-top: 8px; }
       div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard {
         height: 44px;
         border: #939393 2px solid;
@@ -162,9 +162,15 @@ div.right-sb {
           border-radius: 50%; }
       div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard {
         position: relative;
-        padding: 4px;
-        margin-left: -57px;
-        font-size: 11px; }
+        padding: 3px;
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 66px;
+        display: block;
+        margin-left: -11px;
+        margin-top: -20px; }
         div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
           background-color: #939393;
           border-radius: 12px;
@@ -177,6 +183,13 @@ div.right-sb {
         padding-left: 20px;
         padding-bottom: 20px;
         display: inline-block; }
+
+a.dropdownA {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  display: block; }
 
 .toggleRightSb {
   top: 50%;

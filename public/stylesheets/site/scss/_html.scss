@@ -1,5 +1,4 @@
 html {
   @include scrollbar-y($greyBgColor, $primaryBgColor-light, $primaryBgColor);
   @include scrollbar-x($greyBgColor, $primaryBgColor-light, $primaryBgColor);
-
 }

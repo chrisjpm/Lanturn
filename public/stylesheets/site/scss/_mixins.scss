@@ -3,6 +3,7 @@
 1.  Constant Partials
   1.1  Header
   1.2  Footer
+  1.3  Text
 2.  Body Partials
   2.1  HTML
     (a)  Scrollbar
@@ -20,6 +21,15 @@
   transition: ease-in 0.3s;
 }
 //    1.2
+
+//  1.3
+@mixin ellipsis($width) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: $width;
+    display: block;
+}
 
 //  2
 //    2.1
@@ -111,9 +121,15 @@
 
 @mixin players() {
   position: relative;
-  padding: 4px;
-  margin-left: -57px;
+  padding: 3px;
   font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 66px;
+  display: block;
+  margin-left: -11px;
+  margin-top: -20px;
 }
 
 @mixin players-status($bgColor) {

@@ -80,6 +80,10 @@ div {
   }
 }
 
+a.dropdownA {
+  @include ellipsis(120px);
+}
+
 .toggleRightSb{
   top: 50%;
   width: 185px;
