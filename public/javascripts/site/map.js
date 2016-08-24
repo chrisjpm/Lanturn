@@ -137,6 +137,7 @@ function loadPartyInfo(party){
   var partyPage = "https://www.lanturn.net/party/" + party._id;
 
   var partyGameInfo = party.game_info;
+  partyGameInfo.image = partyGameInfo.image.replace("http://", "https://"+window.location.host+"/prox/");
   var partyType = party.type;
   var partyPrize = party.prize;
   var partyPlayerCount = party.attendants.length+"/"+party.maxAttendants;

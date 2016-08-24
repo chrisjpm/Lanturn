@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var compression = require('compression')
 var fs = require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -55,8 +56,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression());
+app.use('/prox', require('iproxy'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
 app.use(session({ secret: 'dankmemeskhalifakappaAappa' }));
 app.use(passport.initialize());
 app.use(passport.session());
