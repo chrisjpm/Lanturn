@@ -57,6 +57,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
+app.use('/prox', require('iproxy'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
