@@ -9,7 +9,7 @@ require('./authentication/pass.js')(passport, LocalStrategy);
 
 //GET REQUESTS
 router.get('/', function(req, res) {
-    res.render('login.ejs', {error : req.flash("error")});
+    res.render('login.hbs', {error : req.flash("error"), pagename: 'Login'});
 });
 
 

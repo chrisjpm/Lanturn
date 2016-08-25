@@ -1,0 +1,47 @@
+div {
+  &.container-blog {
+    margin: 0 5% 0 5%;
+    height: 100%;
+    width: 30%;
+
+    h1 {
+      color: $defaultColor-dark;
+
+      &.title-page {
+        margin-left: 80px;
+      }
+    }
+
+    img {
+      &.title-logo {
+        height: 60px;
+      }
+    }
+
+    div {
+      &.blog-title {
+        height: 10%;
+        position: relative;
+        display: block;
+      }
+
+      &.blog-contents {
+        height: 70%;
+        position: relative;
+        display: block;
+
+        div {
+          &.blog-contents-overflow {
+            overflow-y: scroll;
+          }
+        }
+      }
+
+      &.blog-footer {
+        height: 20%;
+        position: relative;
+        display: block;
+      }
+    }
+  }
+}

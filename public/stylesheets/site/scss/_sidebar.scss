@@ -9,7 +9,6 @@ div {
     div.card div.card-image {
       span {
         &.card-title {
-          color: $primaryColor;
           padding: 1px !important;
           margin-left: 20px;
         }
@@ -23,11 +22,7 @@ div {
       }
       &.card-reveal {
         overflow-y: scroll;
-        h6 {
-          color: $primaryColor;
-        }
         p {
-          color: $defaultColor;
           font-size: 14px;
           margin: 3px 0 3px 0!important;
         }

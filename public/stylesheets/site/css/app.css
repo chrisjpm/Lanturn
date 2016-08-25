@@ -122,7 +122,6 @@ div.right-sb {
   box-shadow: 20px 22px 80px 10px #424242;
   z-index: 10; }
   div.right-sb div.card div.card-image span.card-title {
-    color: #6cafe0;
     padding: 1px !important;
     margin-left: 20px; }
   div.right-sb div.right-sb-content {
@@ -130,10 +129,7 @@ div.right-sb {
     overflow-y: scroll; }
   div.right-sb div.card-reveal {
     overflow-y: scroll; }
-    div.right-sb div.card-reveal h6 {
-      color: #6cafe0; }
     div.right-sb div.card-reveal p {
-      color: #939393;
       font-size: 14px;
       margin: 3px 0 3px 0 !important; }
     div.right-sb div.card-reveal div.players-cardContainer {
@@ -268,6 +264,22 @@ html ::-webkit-scrollbar-thumb:window-inactive {
   border-radius: 2px;
   background: rgba(147, 147, 147, 0.2); }
 
+html h1, html h2, html h3, html h4, html h5, html h6 {
+  color: #2d8dd3 !important; }
+
+html a {
+  color: #2d8dd3; }
+
+html span {
+  color: #6cafe0 !important; }
+
+html p {
+  color: #939393 !important; }
+  html p.important-para {
+    color: #6d6d6d !important; }
+  html p.light-para {
+    color: #b9b9b9 !important; }
+
 #mapCanvas {
   height: 100%;
   left: 0px;
@@ -284,3 +296,31 @@ html ::-webkit-scrollbar-thumb:window-inactive {
   left: 50%;
   margin-top: -128px;
   margin-left: -128px; }
+
+div.container-blog {
+  margin: 0 5% 0 5%;
+  height: 100%;
+  width: 30%; }
+  div.container-blog h1 {
+    color: #6d6d6d; }
+    div.container-blog h1.title-page {
+      margin-left: 80px; }
+  div.container-blog img.title-logo {
+    height: 60px; }
+  div.container-blog div.blog-title {
+    height: 10%;
+    position: relative;
+    display: block; }
+  div.container-blog div.blog-contents {
+    height: 70%;
+    position: relative;
+    display: block; }
+    div.container-blog div.blog-contents div.blog-contents-overflow {
+      overflow-y: scroll; }
+  div.container-blog div.blog-footer {
+    height: 20%;
+    position: relative;
+    display: block; }
+
+div.container-login {
+  margin: 100px 25% 0 25%; }
