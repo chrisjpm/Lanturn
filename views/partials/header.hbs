@@ -30,11 +30,13 @@
 </nav>
 
 <!-- Account Dropdown -->
-<ul id="user-navbardropdown" class="dropdown-content">
-		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">[username]lllllllllllllllllll</a></li>
-    <li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Teams</a></li>
-		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Settings</a></li>
-		<li class="divider"></li>
-		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Logout</a></li>
-    <li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Support</a></li>
-</ul>
+{{#if user}}
+  <ul id="user-navbardropdown" class="dropdown-content">
+  		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">{{user.username}}</a></li>
+      <li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Teams</a></li>
+  		<li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Settings</a></li>
+  		<li class="divider"></li>
+  		<li><a href="/logout" class="waves-effect waves-light blue-text dropdownA">Logout</a></li>
+      <li><a href="/#" class="waves-effect waves-light blue-text dropdownA">Support</a></li>
+  </ul>
+{{/if}}

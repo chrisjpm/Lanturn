@@ -81,8 +81,15 @@ if (app.get('env') !== 'development') {
     res.setHeader("Strict-Transport-Security", "max-age=31536000000");
     return next();
   });
+}else{
+  app.use(function(err, req, res, next) {
+       res.status(err.status || 500);
+       res.render('error', {
+         message: err.message,
+         error: err
+       });
+    });
 }
-
 
 // error handlers
 // development error handler
