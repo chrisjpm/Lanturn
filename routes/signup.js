@@ -14,7 +14,7 @@ const saltRounds = 12;
 
 //GET REQUESTS
 router.get('/', function(req, res, next) {
-  res.render('signup.ejs',{error : req.flash("error")});
+  res.render('signup.hbs',{error : req.flash("error")});
 });
 
 
@@ -70,7 +70,7 @@ function sendVerificationEmail(email){
   var urlSafeEmail = email.replace("+","%2B");
 
   var token = Math.random().toString(36).substring(7);
-  var url = "https://lanplan.herokuapp.com/verify_email?email="+urlSafeEmail+"&token="+token;
+  var url = "https://lanturn.net/verify_email?email="+urlSafeEmail+"&token="+token;
 
   var mailOptions = {
     from: '"Christopher@LanPlan 👥" <LanPlan.Cj1mckay@gmail.com>',
