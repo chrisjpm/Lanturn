@@ -1,5 +1,5 @@
 var socket = io('//' + window.location.host, {
-    query: 'session_id=' + readCookie('your.sid-key')
+    query: 'session_id=' + readCookie('connect.sid')
   });
 
 
