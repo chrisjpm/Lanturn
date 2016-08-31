@@ -71,7 +71,7 @@ app.use('/prox', require('iproxy'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
-app.use(session({ store: sessionStore, secret: SECRET, saveUninitialized: true, resave:false }));
+app.use(session({ store: sessionStore, secret: SECRET, key:"connect.sid", saveUninitialized: true, resave:false }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
