@@ -1,6 +1,4 @@
-var socket = io('//' + window.location.host, {
-    query: 'session_id=' + readCookie('connect.sid')
-  });
+var socket = io();
 
 
 $(function() {
@@ -200,11 +198,5 @@ socket.on('getPartyResult', function(result){
   console.log(result);
   loadPartyInfo(result);
 });
-
-function readCookie(name) {
-  var regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
-  var result = regexp.exec(document.cookie);
-  return (result === null) ? null : result[1];
-}
 
 google.maps.event.addDomListener(window, 'load', initialize);
