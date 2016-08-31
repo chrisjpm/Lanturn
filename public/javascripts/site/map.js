@@ -201,19 +201,10 @@ socket.on('getPartyResult', function(result){
   loadPartyInfo(result);
 });
 
-function readCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-        }
-    }
-    return "";
+function readCookie(name) {
+  var regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
+  var result = regexp.exec(document.cookie);
+  return (result === null) ? null : result[1];
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
