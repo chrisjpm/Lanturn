@@ -15,6 +15,16 @@ var https = require('https');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
+var RedisStore = require('connect-redis')(session);
+
+var sessionStore = new RedisStore({ // Create a session Store
+    host: 'localhost',
+    port: 6379,
+});
+
+
+const SECRET = 'dankmemeskhalifakappaAappa';
+
 require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
 var httpsPort = 443;
@@ -42,7 +52,7 @@ if (app.get('env') !== 'development') {
 }
 var secureServer = https.createServer(httpsOptions, app);
 
-var io = require("./routes/sockets/sockets")(secureServer);
+
 
 var routes = require('./routes/routes.js');
 
@@ -61,13 +71,15 @@ app.use('/prox', require('iproxy'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
-app.use(session({ secret: 'dankmemeskhalifakappaAappa' }));
+app.use(session({ store: sessionStore, secret: SECRET, saveUninitialized: true, resave:false }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(userView);
 
 app.use(routes);
+
+var io = require("./routes/sockets/sockets")(secureServer, cookieParser, passport, sessionStore, SECRET);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
