@@ -6,7 +6,7 @@ module.exports = function(server,cookie,connect,secret, sessionStore) {
           var sessionCookie = cookie.parse(data.headers.cookie);
           var sessionID = connect.utils.parseSignedCookie(sessionCookie['connect.sid'], secret);
           sessionStore.get(sessionID, function(err, session) {
-            console.log("sessuin: " +session);
+            console.log("sessuin: " +JSON.stringify(session));
             if (err || !session) {
               cb('Error', false);
             } else {
