@@ -8,24 +8,28 @@ var hbs = require('hbs');
 var constants = require('constants');
 var helmet = require('helmet');
 var cookieParser = require('cookie-parser');
-var cookie = require('cookie')
+var cookie = require('cookie');
 var connect = require('connect');
 var bodyParser = require('body-parser');
-var session = require('express-session');
+var Session = require('express-session');
 var flash = require('connect-flash');
 var https = require('https');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
-var RedisStore = require('connect-redis')(session);
+const SECRET = 'dankmemeskhalifakappaAappa';
+
+var RedisStore = require('connect-redis')(Session);
 
 var sessionStore = new RedisStore({ // Create a session Store
     host: 'localhost',
     port: 6379,
 });
 
+var session = Session({ store: sessionStore, secret: SECRET, saveUninitialized: true, resave:false })
 
-const SECRET = 'dankmemeskhalifakappaAappa';
+var ios = require('socket.io-express-session');
+
 
 require('./routes/authentication/pass.js')(passport, LocalStrategy);
 
@@ -71,7 +75,7 @@ app.use('/prox', require('iproxy'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
-app.use(session({ store: sessionStore, secret: SECRET, key:"connect.sid", saveUninitialized: true, resave:false}));
+app.use(session);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -79,7 +83,7 @@ app.use(userView);
 
 app.use(routes);
 
-var io = require("./routes/sockets/sockets")(secureServer, cookie, connect,SECRET, sessionStore);
+var io = require("./routes/sockets/sockets")(secureServer, ios,session);
 
 
 

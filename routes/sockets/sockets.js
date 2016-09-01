@@ -1,26 +1,10 @@
-module.exports = function(server,cookie,connect,secret, sessionStore) {
+module.exports = function(server,ios,session) {
     var io = require("socket.io").listen(server);
 
-    io.set('authorization', function(data, cb) {
-        if (data.headers.cookie) {
-          var sessionCookie = cookie.parse(data.headers.cookie);
-          var sessionID = connect.utils.parseSignedCookie(sessionCookie['connect.sid'], secret);
-          sessionStore.get(sessionID, function(err, session) {
-            console.log("sessuin: " +JSON.stringify(session));
-            if (err || !session) {
-              cb('Error', false);
-            } else {
-              data.session = session;
-              data.sessionID = sessionID;
-              cb(null, true);
-            }
-          });
-        } else {
-          cb('No cookie', false);
-        }
-    });
+    io.use(ios(session));
 
     io.on('connection', function(socket) {
+        console.log("THAT MEANS USERNAME :" +socket.handshake.session.passport.user.username);
         require("./gameSearchSockets")(socket);
         require("./mapSockets")(socket);
     });
