@@ -8,6 +8,8 @@ var hbs = require('hbs');
 var constants = require('constants');
 var helmet = require('helmet');
 var cookieParser = require('cookie-parser');
+var cookie = require('cookie')
+var connect = require('connect');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -52,8 +54,6 @@ if (app.get('env') !== 'development') {
 }
 var secureServer = https.createServer(httpsOptions, app);
 
-
-
 var routes = require('./routes/routes.js');
 
 // view engine setup
@@ -79,7 +79,9 @@ app.use(userView);
 
 app.use(routes);
 
-var io = require("./routes/sockets/sockets")(secureServer, cookieParser, passport, sessionStore, SECRET);
+var io = require("./routes/sockets/sockets")(secureServer, cookie, connect,SECRET, sessionStore);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
