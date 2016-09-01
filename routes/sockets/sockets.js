@@ -4,7 +4,7 @@ module.exports = function(server,ios,session) {
     io.use(ios(session));
 
     io.on('connection', function(socket) {
-        console.log("THAT MEANS USERNAME :" +socket.handshake.session.passport.user.username);
+        //console.log("THAT MEANS USERNAME :" +socket.handshake.session.passport.user.username);
         require("./gameSearchSockets")(socket);
         require("./mapSockets")(socket);
     });
