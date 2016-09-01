@@ -6,6 +6,7 @@ module.exports = function(server,cookie,connect,secret, sessionStore) {
           var sessionCookie = cookie.parse(data.headers.cookie);
           var sessionID = connect.utils.parseSignedCookie(sessionCookie['connect.sid'], secret);
           sessionStore.get(sessionID, function(err, session) {
+            console.log("sessuin: " session)
             if (err || !session) {
               cb('Error', false);
             } else {
@@ -22,7 +23,6 @@ module.exports = function(server,cookie,connect,secret, sessionStore) {
     io.on('connection', function(socket) {
         require("./gameSearchSockets")(socket);
         require("./mapSockets")(socket);
-        console.log(this.handshake.session);
     });
 
     return io;
