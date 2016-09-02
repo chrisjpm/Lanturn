@@ -17,7 +17,7 @@ var https = require('https');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
-const SECRET = 'dankmemeskhalifakappaAappa';
+const SECRET = 'd3nkm4meskhtlifRkapp6AasSApay8M';
 
 var RedisStore = require('connect-redis')(Session);
 
