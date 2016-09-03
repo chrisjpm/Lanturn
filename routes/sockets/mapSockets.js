@@ -1,6 +1,6 @@
 module.exports = function(socket){
   var partyQuery = require('../../queries/getParties');
-  console.log("Session: ", socket.handshake);
+
   socket.on('scanParties', function(coords) {
       console.log("HA GOTEM!");
       partyQuery.getPartiesInSetRadius(coords, function(err, partyList) {
@@ -12,7 +12,9 @@ module.exports = function(socket){
   });
 
   socket.on('getParty', function(partyID) {
-    partyQuery.getPartyInfo(partyID, function(err, partyInfo){
+    var username = (socket.handshake.session.passport) ? socket.handshake.session.passport.user.username_lower : false;
+    console.log("USERNAME: " + username);
+    partyQuery.getPartyInfo(partyID, function(err, partyInfo, username){
       if(!err && partyInfo){
         //console.log(partyInfo);
         socket.emit('getPartyResult',partyInfo);
