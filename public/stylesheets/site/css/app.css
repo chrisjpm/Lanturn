@@ -20,6 +20,7 @@
 3.  Cards
 4.  Sidenav
 5.  Contianer
+6.  Forms
 */
 .waves-effect.waves-blue .waves-ripple {
   background-color: #2d8dd3; }
@@ -38,6 +39,10 @@ i.tinyIcon {
 
 .container {
   width: 85% !important; }
+
+i.form-control {
+  width: 100% !important;
+  padding: 0 !important; }
 
 nav {
   background-color: #fff;
@@ -165,7 +170,7 @@ div.right-sb {
         text-overflow: ellipsis;
         max-width: 66px;
         display: block;
-        margin-left: -11px;
+        margin-left: -10px;
         margin-top: -20px; }
         div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
           background-color: #939393;
@@ -323,3 +328,7 @@ div.container-blog {
 
 div.container-login {
   margin: 100px 25% 0 25%; }
+
+div input.loginSubmit {
+  width: 100%;
+  padding: 0 !important; }
