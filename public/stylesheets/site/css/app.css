@@ -329,6 +329,6 @@ div.container-blog {
 div.container-login {
   margin: 100px 25% 0 25%; }
 
-div input.loginSubmit {
+div input.login-submit {
   width: 100%;
   padding: 0 !important; }
