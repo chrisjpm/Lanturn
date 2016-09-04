@@ -8,6 +8,7 @@ module.exports = function(server,ios,session) {
         require("./gameSearchSockets")(socket);
         require("./mapSockets")(socket);
         require("./partySockets")(socket);
+        require("./notificationSockets")(socket);
     });
 
     return io;

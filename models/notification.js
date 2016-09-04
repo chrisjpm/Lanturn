@@ -14,4 +14,4 @@ var NotificationSchema = new mongoose.Schema({
 }, {collection:'notifications'});
 
 
-module.exports = VerifierSchema;
+module.exports = NotificationSchema;
