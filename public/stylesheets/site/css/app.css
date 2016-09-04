@@ -20,6 +20,7 @@
 3.  Cards
 4.  Sidenav
 5.  Contianer
+6.  Forms
 */
 .waves-effect.waves-blue .waves-ripple {
   background-color: #2d8dd3; }
@@ -38,6 +39,10 @@ i.tinyIcon {
 
 .container {
   width: 85% !important; }
+
+i.form-control {
+  width: 100% !important;
+  padding: 0 !important; }
 
 nav {
   background-color: #fff;
@@ -165,7 +170,7 @@ div.right-sb {
         text-overflow: ellipsis;
         max-width: 66px;
         display: block;
-        margin-left: -11px;
+        margin-left: -10px;
         margin-top: -20px; }
         div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
           background-color: #939393;
@@ -264,14 +269,13 @@ html ::-webkit-scrollbar-thumb:window-inactive {
   border-radius: 2px;
   background: rgba(147, 147, 147, 0.2); }
 
-html h1, html h2, html h3, html h4, html h5, html h6 {
+html h1, html h2, html h3, html h4, html h5, html h6, html span {
   color: #2d8dd3 !important; }
+  html h1.blog-h, html h2.blog-h, html h3.blog-h, html h4.blog-h, html h5.blog-h, html h6.blog-h, html span.blog-h {
+    color: #6d6d6d !important; }
 
-html a {
-  color: #2d8dd3; }
-
-html span {
-  color: #6cafe0 !important; }
+html a.custom {
+  color: #2d8dd3 !important; }
 
 html p {
   color: #939393 !important; }
@@ -324,3 +328,34 @@ div.container-blog {
 
 div.container-login {
   margin: 100px 25% 0 25%; }
+  div.container-login input.login-submit {
+    width: 100%;
+    padding: 0 !important; }
+
+div.notif-drawContainer {
+  height: 60%;
+  width: 400px;
+  margin-left: 10px;
+  top: 74px;
+  position: fixed;
+  display: block none;
+  border-radius: 9px 2px 2px 9px;
+  background-color: #fcfcfc;
+  overflow-y: scroll;
+  z-index: 2;
+  right: 6%; }
+  div.notif-drawContainer div.notifWrapper {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border-bottom: 2px #b9b9b9 solid; }
+    div.notif-drawContainer div.notifWrapper i {
+      margin-top: 8px; }
+      div.notif-drawContainer div.notifWrapper i.invite {
+        color: #257823; }
+      div.notif-drawContainer div.notifWrapper i.dm {
+        color: #552378; }
+    div.notif-drawContainer div.notifWrapper h6.notif-date {
+      color: #6cafe0; }
