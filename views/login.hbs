@@ -2,23 +2,26 @@
     <div class="center">
         <h4>Login</h4>
         <br>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-            </div>
-        </div>
+        <form action="" method="post">
+          <div class="row">
+              <div class="input-field col s12">
+                  <input id="usernameField" type="text" class="validate" name="username" required>
+                  <label for="username">Username</label>
+              </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                  <input id="passwordField" type="password" name="password" for="password" class="validate" required>
+                  <label for="password">Password</label>
+              </div>
+          </div>
+          <br>
+          <br>
+
+            <input type="submit" class="form-control btn blue waves-effect waves-dark" style="width: 70%">
+        </form>
         <br>
         <br>
-        <a class="btn blue waves-effect waves-dark" href="" style="width: 70%">Login</a>
-        <br>
-        <br>
-        <span><a class="btn-flat" href="">Forgotten password?</a><a class="btn-flat" href="">Forgotten password?</a></span>
+        <span><a class="btn-flat" href="/signup">Need an account?</a><a class="btn-flat" href="">Forgotten password?</a></span>
     </div>
 </div>

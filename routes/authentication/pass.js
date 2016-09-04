@@ -19,6 +19,7 @@ module.exports = function(passport, LocalStrategy){
       var bcrypt = require('bcryptjs');
 
       UserModel.findOne({ username_lower: username.toLowerCase() }, function(err, user) {
+
         if (err) { return done(err);  }
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' });
