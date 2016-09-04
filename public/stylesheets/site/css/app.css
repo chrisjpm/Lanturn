@@ -266,12 +266,11 @@ html ::-webkit-scrollbar-thumb:window-inactive {
 
 html h1, html h2, html h3, html h4, html h5, html h6 {
   color: #2d8dd3 !important; }
+  html h1.blog-h, html h2.blog-h, html h3.blog-h, html h4.blog-h, html h5.blog-h, html h6.blog-h {
+    color: #6d6d6d !important; }
 
-html a {
-  color: #2d8dd3; }
-
-html span {
-  color: #6cafe0 !important; }
+html a.custom {
+  color: #2d8dd3 !important; }
 
 html p {
   color: #939393 !important; }
