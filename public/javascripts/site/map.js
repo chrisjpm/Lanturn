@@ -1,4 +1,4 @@
-var socket = io();
+//SOCKET ALREADY DEFINED IN NOTIFICATION.JS
 
 
 $(function() {
