@@ -264,9 +264,9 @@ html ::-webkit-scrollbar-thumb:window-inactive {
   border-radius: 2px;
   background: rgba(147, 147, 147, 0.2); }
 
-html h1, html h2, html h3, html h4, html h5, html h6 {
+html h1, html h2, html h3, html h4, html h5, html h6, html span {
   color: #2d8dd3 !important; }
-  html h1.blog-h, html h2.blog-h, html h3.blog-h, html h4.blog-h, html h5.blog-h, html h6.blog-h {
+  html h1.blog-h, html h2.blog-h, html h3.blog-h, html h4.blog-h, html h5.blog-h, html h6.blog-h, html span.blog-h {
     color: #6d6d6d !important; }
 
 html a.custom {

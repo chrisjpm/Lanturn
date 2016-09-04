@@ -2,4 +2,9 @@ div {
   &.container-login {
     margin: 100px 25% 0 25%;
   }
+
+  input.loginSubmit {
+    width: 100%;
+    padding: 0 !important;
+  }
 }
