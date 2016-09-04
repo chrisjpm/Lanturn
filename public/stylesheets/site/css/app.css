@@ -328,9 +328,6 @@ div.container-blog {
 
 div.container-login {
   margin: 100px 25% 0 25%; }
-  div.container-login input.login-submit {
-    width: 100%;
-    padding: 0 !important; }
 
 div.notif-drawContainer {
   height: 60%;
