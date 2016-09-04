@@ -1,0 +1,38 @@
+div.notif-drawContainer {
+    height: 60%;
+    width: 400px;
+    margin-left: 10px;
+    top: 74px;
+    position: fixed;
+    display: block none;
+    border-radius: 9px 2px 2px 9px;
+    background-color: #fff;
+    overflow-y: scroll;
+    z-index: 2;
+    right: 6%;
+
+    div {
+        &.notifWrapper {
+            width: 90%;
+            height: auto;
+            margin-left: 5%;
+            padding-top: 7px;
+            padding-bottom: 5px;
+            border-bottom: 2px $defaultColor-light solid;
+
+            i {
+              margin-top: 8px;
+              &.invite {
+                color: $inviteColor;
+              }
+              &.dm {
+                color: $dmColor;
+              }
+            }
+
+            h6.notif-date {
+              color: $primaryColor;
+            }
+        }
+    }
+}

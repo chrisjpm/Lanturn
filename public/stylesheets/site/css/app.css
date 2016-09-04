@@ -328,7 +328,34 @@ div.container-blog {
 
 div.container-login {
   margin: 100px 25% 0 25%; }
+  div.container-login input.login-submit {
+    width: 100%;
+    padding: 0 !important; }
 
-div input.login-submit {
-  width: 100%;
-  padding: 0 !important; }
+div.notif-drawContainer {
+  height: 60%;
+  width: 400px;
+  margin-left: 10px;
+  top: 74px;
+  position: fixed;
+  display: block none;
+  border-radius: 9px 2px 2px 9px;
+  background-color: #fff;
+  overflow-y: scroll;
+  z-index: 2;
+  right: 6%; }
+  div.notif-drawContainer div.notifWrapper {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border-bottom: 2px #b9b9b9 solid; }
+    div.notif-drawContainer div.notifWrapper i {
+      margin-top: 8px; }
+      div.notif-drawContainer div.notifWrapper i.invite {
+        color: #257823; }
+      div.notif-drawContainer div.notifWrapper i.dm {
+        color: #552378; }
+    div.notif-drawContainer div.notifWrapper h6.notif-date {
+      color: #6cafe0; }
