@@ -22,7 +22,6 @@ router.post('/party',isLoggedIn, function(req, res, next) {
   var PartySchema = require('../models/party');
   var PartyModel = db.model('party', PartySchema);
 
-  console.log(req.user);
 
   var username = req.user.username;
   var gameName = req.body.game_name;

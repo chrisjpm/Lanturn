@@ -2,7 +2,6 @@ module.exports = function(socket){
   var partyQuery = require('../../queries/getParties');
 
   socket.on('scanParties', function(coords) {
-      console.log("HA GOTEM!");
       partyQuery.getPartiesInSetRadius(coords, function(err, partyList) {
           if (!err && partyList) {
               socket.emit('partyScanResult', partyList);

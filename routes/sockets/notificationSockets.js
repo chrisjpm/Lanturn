@@ -8,7 +8,6 @@ module.exports = function(socket) {
           notificationQuery.getNotifications(username, false,function(error, notifications){
 
             if(!error){
-              console.log("GOOFED"+ notifications);
               socket.emit('getNotificationsResult', notifications);
             }
           });
