@@ -141,6 +141,13 @@ function loadPartyInfo(party){
   var partyType = party.type;
   var partyPrize = party.prize;
   var partyPlayerCount = party.attendants.length+"/"+party.maxAttendants;
+  var partyPlayers = "";
+
+  for(var i = 0; i < party.attendants.length; i++){
+    partyPlayers+= '<a href="/user/'+party.attendants[i].username+'"><div class="player">';
+    partyPlayers+= '<img class="userProfImg-gameInfoCard rank1" src="/images/graphics/def_profile.png">';
+    partyPlayers+= '<span class="white-text userProfSpan-gameInfoCard online">'+party.attendants[i].username+'</span></div></a>';
+  }
 
   var partyMapImage = "https://maps.googleapis.com/maps/api/staticmap?center=55.823896,-4.2753191&zoom=16&size=340x157&maptype=roadmap&markers=icon:http://www.lanturn.net/images/graphics/greenmarker.png%7C55.823896,-4.2753191"
   var partyCustomImage = party.image;
@@ -165,7 +172,7 @@ function loadPartyInfo(party){
   $("#partyside_datetime").text(partyDate);
   $("#partyside_host").text(partyHost);
   $("#partyside_host").attr("href",partyHostPage);
-  $("#partyside_page").attr("href",partyPage);
+  $("#partyside_page").attr("onclick","requestJoinParty('"+party._id+"')");
 
   $("#partyside_game").text(partyGameInfo.name);
   $("#partyside_game2").text(partyGameInfo.name);
@@ -174,6 +181,7 @@ function loadPartyInfo(party){
   $("#partyside_type").text(partyType);
   $("#partyside_prize").text(partyPrize);
   $("#partyside_playercount").text(partyPlayerCount);
+  $("#players-card").html(partyPlayers);
 
   $("#partyside_customimage").attr("src",partyCustomImage);
   $("#partyside_descheader1").text(partyDescHeader1);
@@ -198,5 +206,9 @@ socket.on('getPartyResult', function(result){
   console.log(result);
   loadPartyInfo(result);
 });
+
+function requestJoinParty(id){
+  socket.emit("joinParty",{partyID:id});
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);

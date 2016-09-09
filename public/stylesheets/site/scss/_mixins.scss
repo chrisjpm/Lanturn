@@ -135,6 +135,8 @@
 @mixin players-status($bgColor) {
   background-color: $bgColor;
   border-radius: 12px;
+  width: 65px;
+  text-align: center;
   border: $defaultBgColor 2px solid;
 }
 

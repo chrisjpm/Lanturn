@@ -15,7 +15,20 @@ socket.on("getNotificationsResult", function(results){
     html+='<h5 class="notif-title" id="notif-title">'+results[i].not_title+'</h5>';
     html+='<h6 class="notif-date" id="notif-date">'+results[i].not_date+'</h6>';
     html+='<p class="nofic-desc" id="nofic-desc">'+results[i].not_desc+'</p>';
+    if(results[i].not_type == 0){
+      html+='<a class="btn blue waves-effect waves-dark"  onClick="acceptPartyRequest(\'' + results[i].ticket_id +','+results[i]._id+ '\')">Accept</a>';
+      html+='<a class="btn blue waves-effect waves-dark" ticket="'+results[i].ticket_id+'" onClick=\"declinePartyRequest(this)"\>Decline</a>';
+    }
     html += '</div></a>'
   }
   document.getElementById('notif-drawer').innerHTML += html;
 });
+
+function acceptPartyRequest(ticket){
+    console.log("spot" + ticket);
+    socket.emit("acceptPartyRequest", ticket);
+}
+function declinePartyRequest(element){
+  console.log("light");
+  socket.emit("declinePartyRequest", element.ticket);
+}

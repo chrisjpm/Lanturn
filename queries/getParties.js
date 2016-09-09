@@ -64,3 +64,45 @@ exports.getPartyInfo = function(id, callback){
     return callback(err, party);
   });
 }
+
+exports.addPlayerToParty = function(id, player){
+  var PartySchema = require('../models/party');
+  var PartyModel = db.model('party', PartySchema);
+
+  console.log("billy@?");
+  var query = PartyModel.findOne({
+    _id: id
+  }, DEF_EXCLUSIONS).exec(function(err, party){
+    party.attendants.push(player);
+    party.save();
+  });
+}
+
+exports.isPartyFull = function(id, callback){
+  var PartySchema = require('../models/party');
+  var PartyModel = db.model('party', PartySchema);
+
+  var query = PartyModel.findOne({
+    _id: id
+  }, DEF_EXCLUSIONS).exec(function(err, party){
+    var isFull = (party.attendants.length == party.maxAttendants);
+    return callback(err, isFull);
+  });
+}
+
+exports.getPartyOwner = function(partyID, isLowercase, callback){
+  var PartySchema = require('../models/party');
+  var PartyModel = db.model('party', PartySchema);
+
+  var query = PartyModel.findOne({
+    _id: partyID
+  }, DEF_EXCLUSIONS).exec(function(err, party){
+    var username;
+    if(isLowercase){
+      username = party.owner_username_lower;
+    }else{
+      username = party.owner_username;
+    }
+    return callback(err, username);
+  });
+}

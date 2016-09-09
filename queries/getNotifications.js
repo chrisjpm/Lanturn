@@ -18,8 +18,24 @@ function createNotification(usernameLower,type,title,description,target){
 
 exports.createNotification = createNotification;
 
+exports.createPartyRequestDeclinedNotification = function(owner, username){
+  createNotification(username, 1, "Party join request declined", owner+" declined your request to join their party.", "");
+}
+
 exports.createPartyJoinRequestNotification = function(ownerUsernameLower,requestUsername,ticketID){
-  createNotification(ownerUsernameLower, 0, "Party join request!", requestUsername+" has requested to join your party. Click to respond.", "/partyticket/"+ticketID);
+  var NotificationSchema = require('../models/notification');
+  var NotificationModel = db.model('notification', NotificationSchema);
+
+  var newNotification = new NotificationModel();
+
+  newNotification.owner_username_lower = ownerUsernameLower;
+  newNotification.not_type = 0;
+  newNotification.not_title = "Party join request!";
+  newNotification.not_desc = requestUsername+" has requested to join your party. Click to view their profile.";
+  newNotification.not_target = '/user/'+requestUsername;
+  newNotification.ticket_id = ticketID;
+
+  newNotification.save();
 }
 
 exports.getNotifications = function(usernameLower,isRead,callback){
@@ -31,5 +47,18 @@ exports.getNotifications = function(usernameLower,isRead,callback){
       dismissed:isRead
     }).exec(function(err, notifications){
       return callback(err, notifications);
+    });
+}
+
+exports.dismissNotification = function(username, id){
+  var NotificationSchema = require('../models/notification');
+  var NotificationModel = db.model('notification', NotificationSchema);
+
+  var query = NotificationModel.findOne({
+      _id: id,
+      owner_username_lower: username
+    }).exec(function(err, notification){
+      notification.dismissed = true;
+      notification.save();
     });
 }

@@ -7,6 +7,8 @@ var PartyTicketSchema = new mongoose.Schema({
   },
   party_id: String,
   request_username_lower: String,
+  request_username: String,
+  request_userimage: String,  //TODO UPDATE REFERENCES TO PARTY TICKET SINCE STRUCTURE HAS BEEN MODIFIED
   request_date: { type: Date, default: Date.now },
   accepted: { type: Boolean, default: false }
 }, {collection:'party_tickets'});

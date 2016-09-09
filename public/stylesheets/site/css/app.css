@@ -175,10 +175,14 @@ div.right-sb {
         div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
           background-color: #939393;
           border-radius: 12px;
+          width: 65px;
+          text-align: center;
           border: white 2px solid; }
         div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.online {
           background-color: #6cafe0;
           border-radius: 12px;
+          width: 65px;
+          text-align: center;
           border: white 2px solid; }
       div.right-sb div.card-reveal div.players-cardContainer div.player {
         padding-left: 20px;
