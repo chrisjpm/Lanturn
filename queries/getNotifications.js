@@ -22,6 +22,10 @@ exports.createPartyRequestDeclinedNotification = function(owner, username){
   createNotification(username, 1, "Party join request declined", owner+" declined your request to join their party.", "");
 }
 
+exports.createPartyRequestAcceptedNotification = function(owner, username){
+  createNotification(username, 1, "Party join request accepted", owner+" accepted your request to join their party.", "");
+}
+
 exports.createPartyJoinRequestNotification = function(ownerUsernameLower,requestUsername,ticketID){
   var NotificationSchema = require('../models/notification');
   var NotificationModel = db.model('notification', NotificationSchema);

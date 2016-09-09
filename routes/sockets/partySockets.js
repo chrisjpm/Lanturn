@@ -34,12 +34,13 @@ module.exports = function(socket) {
       console.log(username != false);
       console.log(ticketID);
       if(username != false && ticketID != false && notID != false){
-        ticketQuery.acceptTicket(username, ticketID, function(error){
+        ticketQuery.acceptTicket(username, ticketID, function(error, reqUser){
           console.log("ACCEPT TICKET ERROR:"+error);
           if(error){
             socket.emit('acceptPartyRequestResult', error);
           }else{
             notificationQuery.dismissNotification(username, notID);
+            notificationQuery.createPartyRequestAcceptedNotification(username, reqUser);
             socket.emit('acceptPartyRequestResult', "Success");
           }
         });

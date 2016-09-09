@@ -57,11 +57,11 @@ exports.acceptTicket = function(ownerUsernameLower, ticketID, callback){
 
           ticket.save();
 
-          callback(false);
+          callback(false, playerObj.username_lower);
         }
       });
     }else{
-      callback("Invalid ticket.");
+      callback("Invalid ticket.", null);
     }
   });
 }
