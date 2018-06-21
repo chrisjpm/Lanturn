@@ -14,6 +14,7 @@ var bodyParser = require('body-parser');
 var Session = require('express-session');
 var flash = require('connect-flash');
 var https = require('https');
+var diet = require('diet');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -151,7 +152,7 @@ function userView(req, res, next) {
     next();
 }
 
-server.listen(process.env.PORT || 80);
+server.listen(process.env.PORT || 8082);
 secureServer.listen(httpsPort);
 
 module.exports = app;
