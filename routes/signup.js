@@ -5,7 +5,13 @@ var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://admin:nostromo23@ds011422.mlab.com:11422/lanplan');
 
 var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport('smtps://LanPlan.Cj1mckay%40gmail.com:Rarepepes123@smtp.gmail.com');
+var transporter =  nodemailer.createTransport("SMTP",{
+                service: "Zoho",
+                auth: {
+                    user: "support@lanturn.net",
+                    pass: "rarepepes123"
+                }
+            });
 
 //Password hashing
 var bcrypt = require('bcryptjs');
@@ -14,7 +20,8 @@ const saltRounds = 12;
 
 //GET REQUESTS
 router.get('/', function(req, res, next) {
-  res.render('signup.ejs',{error : req.flash("error")});
+
+  res.render('signup.hbs',{error : req.flash("error")});
 });
 
 
@@ -70,10 +77,10 @@ function sendVerificationEmail(email){
   var urlSafeEmail = email.replace("+","%2B");
 
   var token = Math.random().toString(36).substring(7);
-  var url = "https://lanplan.herokuapp.com/verify_email?email="+urlSafeEmail+"&token="+token;
+  var url = "https://lanturn.net/verify_email?email="+urlSafeEmail+"&token="+token;
 
   var mailOptions = {
-    from: '"Christopher@LanPlan 👥" <LanPlan.Cj1mckay@gmail.com>',
+    from: '"Support@Lanturn 👥" <support@lanturn.net>',
     to: email,
     subject: 'LanPlan Email Verification', // Subject line
     text: 'Welcome to LanPlan, please verify your email to complete your signup by click the following link: ' +url,
@@ -82,7 +89,6 @@ function sendVerificationEmail(email){
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
           console.log("failed to send" + error);
-          return sendVerificationEmail(email);
       }
       console.log('Message sent: ' + info.response);
 
@@ -93,7 +99,6 @@ function sendVerificationEmail(email){
       newVerifier.save(function(err){
         if(err){
           console.log("failed to save" + err);
-          return sendVerificationEmail(email);
         }else{
           console.log("Success!");
         }

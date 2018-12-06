@@ -1,0 +1,102 @@
+div {
+  &.left-sb {
+    @include sidebar(left, 10px 15px 60px 15px, 0, null, 270px, $greyBgColor-light, $primaryColor, -20px 22px 80px 10px $defaultShadowColor);
+  }
+
+  &.right-sb {
+    @include sidebar(left, 10px 15px 60px 15px, null, 0, 350px, $greyBgColor-light, $primaryColor, 20px 22px 80px 10px $defaultShadowColor);
+
+    div.card div.card-image {
+      span {
+        &.card-title {
+          padding: 1px !important;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    div {
+      &.right-sb-content {
+        height: 100%;
+        overflow-y: scroll;
+      }
+      &.card-reveal {
+        overflow-y: scroll;
+        p {
+          font-size: 14px;
+          margin: 3px 0 3px 0!important;
+        }
+        div {
+          &.players-cardContainer {
+            width: 100%;
+            height: auto;
+            padding-top: 8px;
+            img {
+              &.userProfImg-gameInfoCard {
+                @include players-img($greyBgColor);
+                //ranks
+                &.rank1 { //until rename
+                  @include players-img($rank1BgColor);
+                }
+                &.rank2 { //until rename
+                  @include players-img($rank2BgColor);
+                }
+                &.rank3 { //until rename
+                  @include players-img($rank3BgColor);
+                }
+                &.rank4 { //until rename
+                  @include players-img($rank4BgColor);
+                }
+              }
+            }
+            span {
+              &.userProfSpan-gameInfoCard {
+                @include players();
+                //status
+                &.offline {
+                  @include players-status($defaultColor);
+                }
+                &.online {
+                  @include players-status($primaryColor);
+                }
+              }
+            }
+            div {
+              &.player {
+                padding-left: 20px;
+                padding-bottom: 20px;
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+a.dropdownA {
+  @include ellipsis(120px);
+}
+
+.toggleRightSb{
+  top: 50%;
+  width: 185px;
+  position: absolute;
+  left: 0px;
+  transform: rotate(270deg);
+  -webkit-transform-origin: 0 109%;
+}
+
+.toggleLeftSb{
+  top: 50%;
+  width: 185px;
+  position: absolute;
+  right: 0px;
+  transform: rotate(90deg);
+  -webkit-transform-origin: 100% 109%;
+}
+
+.right-sb-content::-webkit-scrollbar, .left-sb-content::-webkit-scrollbar {
+    width: 0px !important;
+}

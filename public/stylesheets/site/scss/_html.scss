@@ -1,0 +1,27 @@
+html {
+  @include scrollbar-y($greyBgColor, $primaryBgColor-light, $primaryBgColor);
+  @include scrollbar-x($greyBgColor, $primaryBgColor-light, $primaryBgColor);
+
+  h1, h2, h3, h4, h5, h6, span {
+    color: $primaryColor-dark !important;
+
+    &.blog-h {
+      color: $defaultColor-dark !important;
+    }
+  }
+
+  a.custom {
+    color: $primaryColor-dark !important;
+  }
+
+  p {
+    color: $defaultColor !important;
+
+    &.important-para {
+      color: $defaultColor-dark !important;
+    }
+    &.light-para {
+      color: $defaultColor-light !important;
+    }
+  }
+}

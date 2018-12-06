@@ -1,0 +1,366 @@
+/*
+1.  Text
+2.  Background
+3.  Header
+*/
+/*
+1.  Constant Partials
+  1.1  Header
+  1.2  Footer
+  1.3  Text
+2.  Body Partials
+  2.1  HTML
+    (a)  Scrollbar
+  2.2  Index
+    (a)  Sidebars
+*/
+/*
+1.  Waves
+2.  Icons
+3.  Cards
+4.  Sidenav
+5.  Contianer
+6.  Forms
+*/
+.waves-effect.waves-blue .waves-ripple {
+  background-color: #2d8dd3; }
+
+i.smallIcon {
+  font-size: 1.8em !important; }
+
+i.tinyIcon {
+  font-size: 1.2em !important; }
+
+.card .card-reveal {
+  height: 101% !important; }
+
+#sidenav-overlay {
+  z-index: auto !important; }
+
+.container {
+  width: 85% !important; }
+
+i.form-control {
+  width: 100% !important;
+  padding: 0 !important; }
+
+nav {
+  background-color: #fff;
+  position: relative;
+  z-index: 11; }
+  nav .headerborder {
+    height: 3px;
+    width: 100%;
+    background: #b9b9b9;
+    transition: ease-in 0.3s; }
+    nav .headerborder:hover {
+      height: 3px;
+      width: 100%;
+      background: #6cafe0;
+      transition: ease-in 0.3s; }
+  nav h4.header-title {
+    color: #939393; }
+  nav h4 small.pagename {
+    color: #b9b9b9; }
+  nav h4:hover {
+    color: #6cafe0; }
+    nav h4:hover small.pagename {
+      color: #6db5eb; }
+  nav a {
+    cursor: pointer; }
+    nav a.sidebarBtn {
+      color: #939393; }
+      nav a.sidebarBtn:active {
+        color: #6cafe0; }
+  nav ul {
+    margin-bottom: -3px; }
+    nav ul.headernav a.headerA {
+      vertical-align: top !important;
+      color: #939393; }
+      nav ul.headernav a.headerA:hover {
+        background-color: #6cafe0;
+        color: white;
+        height: auto;
+        transition: ease-in 0.6s; }
+    nav ul.headernav a.iconA {
+      vertical-align: top !important;
+      color: #939393; }
+      nav ul.headernav a.iconA:hover {
+        color: #6cafe0;
+        transition: ease-in 0.3s; }
+    nav ul.headernav img.userProfImgHeader {
+      border-radius: 23px;
+      margin-top: calc((64px - 46px) / 2); }
+    nav ul.side-nav h6.nav-header {
+      padding: 15px 0 0 15px !important;
+      margin: 0 !important;
+      color: #939393; }
+  nav:hover .headerborder {
+    height: 3px;
+    width: 100%;
+    background: #6cafe0;
+    transition: ease-in 0.3s; }
+
+div.left-sb {
+  text-align: left;
+  padding: 10px 15px 60px 15px;
+  position: fixed;
+  top: 67px;
+  left: 0;
+  bottom: 0;
+  width: 270px;
+  background: #f9f9f9;
+  color: #6cafe0;
+  box-shadow: -20px 22px 80px 10px #424242;
+  z-index: 10; }
+
+div.right-sb {
+  text-align: left;
+  padding: 10px 15px 60px 15px;
+  position: fixed;
+  top: 67px;
+  right: 0;
+  bottom: 0;
+  width: 350px;
+  background: #f9f9f9;
+  color: #6cafe0;
+  box-shadow: 20px 22px 80px 10px #424242;
+  z-index: 10; }
+  div.right-sb div.card div.card-image span.card-title {
+    padding: 1px !important;
+    margin-left: 20px; }
+  div.right-sb div.right-sb-content {
+    height: 100%;
+    overflow-y: scroll; }
+  div.right-sb div.card-reveal {
+    overflow-y: scroll; }
+    div.right-sb div.card-reveal p {
+      font-size: 14px;
+      margin: 3px 0 3px 0 !important; }
+    div.right-sb div.card-reveal div.players-cardContainer {
+      width: 100%;
+      height: auto;
+      padding-top: 8px; }
+      div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard {
+        height: 44px;
+        border: #939393 2px solid;
+        border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank1 {
+          height: 44px;
+          border: #939393 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank2 {
+          height: 44px;
+          border: #44af2e 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank3 {
+          height: 44px;
+          border: #a3c5f9 2px solid;
+          border-radius: 50%; }
+        div.right-sb div.card-reveal div.players-cardContainer img.userProfImg-gameInfoCard.rank4 {
+          height: 44px;
+          border: #683391 2px solid;
+          border-radius: 50%; }
+      div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard {
+        position: relative;
+        padding: 3px;
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 66px;
+        display: block;
+        margin-left: -10px;
+        margin-top: -20px; }
+        div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.offline {
+          background-color: #939393;
+          border-radius: 12px;
+          width: 65px;
+          text-align: center;
+          border: white 2px solid; }
+        div.right-sb div.card-reveal div.players-cardContainer span.userProfSpan-gameInfoCard.online {
+          background-color: #6cafe0;
+          border-radius: 12px;
+          width: 65px;
+          text-align: center;
+          border: white 2px solid; }
+      div.right-sb div.card-reveal div.players-cardContainer div.player {
+        padding-left: 20px;
+        padding-bottom: 20px;
+        display: inline-block; }
+
+a.dropdownA {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  display: block; }
+
+.toggleRightSb {
+  top: 50%;
+  width: 185px;
+  position: absolute;
+  left: 0px;
+  transform: rotate(270deg);
+  -webkit-transform-origin: 0 109%; }
+
+.toggleLeftSb {
+  top: 50%;
+  width: 185px;
+  position: absolute;
+  right: 0px;
+  transform: rotate(90deg);
+  -webkit-transform-origin: 100% 109%; }
+
+.right-sb-content::-webkit-scrollbar, .left-sb-content::-webkit-scrollbar {
+  width: 0px !important; }
+
+html ::-webkit-scrollbar {
+  width: 5px;
+  padding-left: 10px; }
+
+html ::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.4); }
+
+html ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.7); }
+
+html ::-webkit-scrollbar-thumb:hover {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #abd1ed; }
+
+html ::-webkit-scrollbar-thumb:active {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #6cafe0; }
+
+html ::-webkit-scrollbar-thumb:window-inactive {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.2); }
+
+html ::-webkit-scrollbar {
+  height: 5px;
+  padding-left: 10px; }
+
+html ::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.4); }
+
+html ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.7); }
+
+html ::-webkit-scrollbar-thumb:hover {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #abd1ed; }
+
+html ::-webkit-scrollbar-thumb:active {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #6cafe0; }
+
+html ::-webkit-scrollbar-thumb:window-inactive {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: rgba(147, 147, 147, 0.2); }
+
+html h1, html h2, html h3, html h4, html h5, html h6, html span {
+  color: #2d8dd3 !important; }
+  html h1.blog-h, html h2.blog-h, html h3.blog-h, html h4.blog-h, html h5.blog-h, html h6.blog-h, html span.blog-h {
+    color: #6d6d6d !important; }
+
+html a.custom {
+  color: #2d8dd3 !important; }
+
+html p {
+  color: #939393 !important; }
+  html p.important-para {
+    color: #6d6d6d !important; }
+  html p.light-para {
+    color: #b9b9b9 !important; }
+
+#mapCanvas {
+  height: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute; }
+
+#mapLoading {
+  position: absolute;
+  z-index: 69;
+  width: 256px;
+  height: 256px;
+  top: 50%;
+  left: 50%;
+  margin-top: -128px;
+  margin-left: -128px; }
+
+div.container-blog {
+  margin: 0 5% 0 5%;
+  height: 100%;
+  width: 30%; }
+  div.container-blog h1 {
+    color: #6d6d6d; }
+    div.container-blog h1.title-page {
+      margin-left: 80px; }
+  div.container-blog img.title-logo {
+    height: 60px; }
+  div.container-blog div.blog-title {
+    height: 10%;
+    position: relative;
+    display: block; }
+  div.container-blog div.blog-contents {
+    height: 70%;
+    position: relative;
+    display: block; }
+    div.container-blog div.blog-contents div.blog-contents-overflow {
+      overflow-y: scroll; }
+  div.container-blog div.blog-footer {
+    height: 20%;
+    position: relative;
+    display: block; }
+
+div.container-login {
+  margin: 100px 25% 0 25%; }
+  div.container-login input.login-submit {
+    width: 100%;
+    height: 100%;
+    padding: 0 !important; }
+
+div.notif-drawContainer {
+  height: 60%;
+  width: 400px;
+  margin-left: 10px;
+  top: 74px;
+  position: fixed;
+  display: none;
+  border-radius: 9px 2px 2px 9px;
+  background-color: #fcfcfc;
+  overflow-y: scroll;
+  z-index: 2;
+  right: 6%; }
+  div.notif-drawContainer div.notifWrapper {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border-bottom: 2px #b9b9b9 solid; }
+    div.notif-drawContainer div.notifWrapper i {
+      margin-top: 8px; }
+      div.notif-drawContainer div.notifWrapper i.invite {
+        color: #257823; }
+      div.notif-drawContainer div.notifWrapper i.dm {
+        color: #552378; }
+    div.notif-drawContainer div.notifWrapper h6.notif-date {
+      color: #6cafe0; }

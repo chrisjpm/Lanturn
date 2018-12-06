@@ -1,0 +1,69 @@
+//  TABLE OF CONTENTS
+
+/*
+1.  Text
+2.  Background
+3.  Header
+*/
+
+//  1
+$defaultColor: rgb(147, 147, 147) !default;
+
+$defaultColor-light: lighten($defaultColor, 15%);
+$defaultColor-dark: darken($defaultColor, 15%);
+
+$primaryColor: rgb(108, 175, 224);
+$secondaryColor: rgb(109, 181, 235);
+
+$primaryColor-light: lighten($primaryColor, 15%);
+$primaryColor-dark: darken($primaryColor, 15%);
+$secondaryColor-light: lighten($secondaryColor, 15%);
+$secondaryColor-dark: darken($secondaryColor, 15%);
+
+$successColor: rgb(56, 177, 53);
+$alertColor: rgb(231, 219, 58);
+$errorColor: rgb(180, 48, 48);
+$disabledColor: rgb(185, 185, 185);
+$whiteColor: rgb(255, 255, 255);
+$blackColor: rgb(0, 0, 0);
+
+$inviteColor: rgb(37, 120, 35);
+$dmColor: rgb(85, 35, 120);
+
+$smallIcon: 1.8em !important;
+$tinyIcon: 1.2em !important;
+
+//  2
+$defaultBgColor: rgb(255, 255, 255) !default;
+
+$greyBgColor: rgb(147, 147, 147);
+
+$greyBgColor-light: lighten($greyBgColor, 40%);
+$greyBgColor-dark: darken($greyBgColor, 15%);
+
+$primaryBgColor: rgb(108, 175, 224);
+$secondaryBgColor: rgb(109, 181, 235);
+
+$primaryBgColor-light: lighten($primaryBgColor, 15%);
+$secondaryBgColor-light: lighten($secondaryBgColor, 15%);
+
+$succesBgColor: rgb(56, 177, 53);
+$alertBgColor: rgb(231, 219, 58);
+$errorBgColor: rgb(180, 48, 48);
+$disabledBgColor: rgb(185, 185, 185);
+
+$succesBgColor-light: lighten($succesBgColor, 15%);
+$alertBgColor-light: lighten($alertBgColor, 15%);
+$errorBgColor-light: lighten($errorBgColor, 15%);
+$disabledBgColor-light: lighten($disabledBgColor, 15%);
+
+$rank1BgColor: rgb(147, 147, 147); //until rename
+$rank2BgColor: rgb(68, 175, 46); //until rename
+$rank3BgColor: rgb(163, 197, 249); //until rename
+$rank4BgColor: rgb(104, 51, 145); //until rename
+
+$defaultShadowColor: rgb(66, 66, 66);
+
+//  3
+$headerBorderThickness: 3px;
+$headerBgColor: #fff;

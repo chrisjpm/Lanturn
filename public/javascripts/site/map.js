@@ -1,13 +1,5 @@
-var socket = io();
+//SOCKET ALREADY DEFINED IN NOTIFICATION.JS
 
-$( document ).ready(function() {
-  setMapHeight();
-});
-
-$( window ).resize(function() {
-  setMapHeight();
-  console.log("changeed")
-});
 
 $(function() {
     $('body').mousedown(function(e){if(e.button==1)return false});
@@ -30,18 +22,6 @@ function initialize() {
         map = new google.maps.Map(document.getElementById('mapCanvas'),
         mapOptions);
 
-        //I am an legend
-        var legend = document.createElement("div");
-        legend.id = "legend";
-        var content = [];
-        content.push('<img id="legend-icon" src="public/images/graphics/legend-icon.png">');
-        content.push('<p><img src="public/images/graphics/greenmarker.png"> Looking for players</p>');
-        content.push('<p><img src="public/images/graphics/bluemarker.png"> Starting soon</p>');
-        content.push('<p><img src="public/images/graphics/redmarker.png"> Full</p>');
-
-        legend.innerHTML = content.join('');
-        legend.index = 1;
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 
         var GeoMarker = new GeolocationMarker(map);
         var geoMarkerCircle = new google.maps.Circle({radius: 10});
@@ -69,27 +49,8 @@ function handleNoGeolocation(){
     map = new google.maps.Map(document.getElementById('mapCanvas'),
     mapOptions);
 
-    //I am an legend
-    var legend = document.createElement("div");
-    legend.id = "legend";
-    var content = [];
-    content.push('<img id="legend-icon" src="public/images/graphics/legend-icon.png">');
-    content.push('<p><img src="public/images/graphics/greenmarker.png"> Looking for players</p>');
-    content.push('<p><img src="public/images/graphics/bluemarker.png"> Starting soon</p>');
-    content.push('<p><img src="public/images/graphics/redmarker.png"> Full</p>');
-
-    legend.innerHTML = content.join('');
-    legend.index = 1;
-    map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
-
     socket.emit('scanParties', {"lat":20, "lng":-30});
     removeLoadingImage();
-}
-
-function setMapHeight(){
-  var headerHeight = $("#headerContainer").height() + parseInt($("#headerContainer").css("border-bottom").split(" ")[0].substr(0, $("#headerContainer").css("border-bottom").indexOf('px')));
-  document.getElementById("wrapper").style.height = ($(document).height() - headerHeight) /$(document).height() * 100 + "%";
-  document.getElementById("mapCanvas").style.height = "100%";
 }
 
 function removeLoadingImage(){
@@ -98,38 +59,140 @@ function removeLoadingImage(){
 
 function addPartyToMap(party){
   var partyID = party._id;
-  var host = party.owner_username;
-  var gameInfo = party.game_info;
-  var gamePrice = gameInfo.price;
-  var gameImage = gameInfo.image;
-  var gameUrl = gameInfo.url;
-  var gameName = gameInfo.name;
+  var location = party.coords;
+
+  //TODO DO SOMETHING FANCY WITH THIS STUFF
   var attendants = party.attendants;
   var maxAttendants = party.maxAttendants;
-  var location = party.coords;
   var dateTime = party.date;
-  var description = party.description;
+
   var latLng = new google.maps.LatLng(location[1],location[0]);
 
   var markerImg = "public/images/graphics/greenmarker.png";
 
-  var contentString = "<a id='hostNameRef' href='/profile/"+host+"'><h1 id='hostName'><b>"+host+"</b></a><b>'s Party</b></h1> \n <a id='gameRef' target='_blank' href='"+gameUrl+"'><h2 id='gameTxt'>"+gameName+"<h2></a> \n <h3>"+dateTime+"</h3> \n <h4>"+attendants.length+"/"+maxAttendants+" players</h4> \n <p>---------------------------------</p> \n <h5>"+description+"</h5> <button type='button' id='joinParty' onclick='joinParty("+partyID+");' class='btn btn-default'>Join Party</button>";
-
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
 
   var marker = new google.maps.Marker({
     icon: {url:markerImg},
     position: latLng,
     map: map,
-    title: host+"'s Party",
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
+    party: partyID
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
+      socket.emit('getParty', marker["party"]);
+      console.log("party id: " +marker["party"]);
+      map.panTo(marker.getPosition());
+      preparePartyInfoSidebar();
   });
+}
+
+function preparePartyInfoSidebar(){
+  $(".right-sb").trigger("sidebar:open");
+  //ADD PARTY INFO LOADING ANIMATION
+}
+
+function setCustomAddress(address){
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var myOptions = {
+    center: { lat: 0, lng: 0},
+    zoom: 15,
+    disableDefaultUI: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
+
+  if (geocoder) {
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+            map.setCenter(results[0].geometry.location);
+
+            var GeoMarker = new GeolocationMarker(map);
+            var geoMarkerCircle = new google.maps.Circle({radius: 10});
+            geoMarkerCircle.bindTo("center", GeoMarker, "position");
+
+          } else {
+            alert("No results found");
+          }
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+}
+
+function loadPartyInfo(party){
+  var partyName = party.name;
+
+  var partyAddressLine1 = party.addressLine1;
+  var partyAddressLine2 = party.addressLine2;
+  var partyAddressCity = party.addressCity;
+  var partyAddressZip = party.addressZip;
+
+  var partyDate = party.date;
+  var partyHost = party.owner_username;
+  var partyHostPage = "https://www.lanturn.net/user/"+partyHost;
+  var partyPage = "https://www.lanturn.net/party/" + party._id;
+
+  var partyGameInfo = party.game_info;
+  partyGameInfo.image = partyGameInfo.image.replace("http://", "https://"+window.location.host+"/prox/");
+  var partyType = party.type;
+  var partyPrize = party.prize;
+  var partyPlayerCount = party.attendants.length+"/"+party.maxAttendants;
+  var partyPlayers = "";
+
+  for(var i = 0; i < party.attendants.length; i++){
+    partyPlayers+= '<a href="/user/'+party.attendants[i].username+'"><div class="player">';
+    partyPlayers+= '<img class="userProfImg-gameInfoCard rank1" src="/images/graphics/def_profile.png">';
+    partyPlayers+= '<span class="white-text userProfSpan-gameInfoCard online">'+party.attendants[i].username+'</span></div></a>';
+  }
+
+  var partyMapImage = "https://maps.googleapis.com/maps/api/staticmap?center=55.823896,-4.2753191&zoom=16&size=340x157&maptype=roadmap&markers=icon:http://www.lanturn.net/images/graphics/greenmarker.png%7C55.823896,-4.2753191"
+  var partyCustomImage = party.image;
+  if(partyCustomImage == ""){partyCustomImage = "https://pbs.twimg.com/media/Ca74zsMXEAAPkoO.png";}
+
+  var partyDescHeader1 = party.descriptionHeader1;
+  var partyDescHeader2 = party.descriptionHeader2;
+  var partyDescHeader3 = party.descriptionHeader3;
+
+  var partyDescSub1 = party.descriptionSub1;
+  var partyDescSub2 = party.descriptionSub2;
+  var partyDescSub3 = party.descriptionSub3;
+
+  $("#partyside_name").text(partyName);
+  $("#partyside_name2").text(partyName);
+
+  $("#partyside_addressline1").text(partyAddressLine1);
+  $("#partyside_addressline2").text(partyAddressLine2);
+  $("#partyside_addresszip").text(partyAddressZip);
+  $("#partyside_addresscity").text(partyAddressCity);
+
+  $("#partyside_datetime").text(partyDate);
+  $("#partyside_host").text(partyHost);
+  $("#partyside_host").attr("href",partyHostPage);
+  $("#partyside_page").attr("onclick","requestJoinParty('"+party._id+"')");
+
+  $("#partyside_game").text(partyGameInfo.name);
+  $("#partyside_game2").text(partyGameInfo.name);
+  $("#partyside_gameImage").attr("src",partyGameInfo.image);
+  $("#partyside_gameurl").attr("href",partyGameInfo.url);
+  $("#partyside_type").text(partyType);
+  $("#partyside_prize").text(partyPrize);
+  $("#partyside_playercount").text(partyPlayerCount);
+  $("#players-card").html(partyPlayers);
+
+  $("#partyside_customimage").attr("src",partyCustomImage);
+  $("#partyside_descheader1").text(partyDescHeader1);
+  $("#partyside_descheader2").text(partyDescHeader2);
+  $("#partyside_descheader3").text(partyDescHeader3);
+  $("#partyside_descsub1").text(partyDescSub1);
+  $("#partyside_descsub2").text(partyDescSub2);
+  $("#partyside_descsub3").text(partyDescSub3);
+
+  //JUST LINKS TO HOST PROFILE
+  $("#partyside_guild").attr("href", partyHostPage);
 }
 
 socket.on('partyScanResult', function(results){
@@ -138,5 +201,14 @@ socket.on('partyScanResult', function(results){
     addPartyToMap(results[i]);
   }
 });
+
+socket.on('getPartyResult', function(result){
+  console.log(result);
+  loadPartyInfo(result);
+});
+
+function requestJoinParty(id){
+  socket.emit("joinParty",{partyID:id});
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);

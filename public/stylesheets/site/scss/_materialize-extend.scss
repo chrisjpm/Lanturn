@@ -1,0 +1,47 @@
+//  TABLE OF CONTENTS
+/*
+1.  Waves
+2.  Icons
+3.  Cards
+4.  Sidenav
+5.  Contianer
+6.  Forms
+*/
+
+//  1
+.waves-effect {
+  &.waves-blue .waves-ripple {
+    background-color: $primaryColor-dark;
+  }
+}
+
+//  2
+i {
+  &.smallIcon {
+    font-size: $smallIcon;
+  }
+  &.tinyIcon {
+    font-size: $tinyIcon;
+  }
+}
+
+//  3
+.card .card-reveal {
+  height: 101% !important;
+}
+
+//  4
+#sidenav-overlay {
+  z-index: auto !important;
+}
+
+//  5
+.container {
+    width: 85% !important;
+}
+
+//  6
+i.form-control {
+  width: 100% !important;
+  padding: 0 !important;
+}

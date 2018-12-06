@@ -1,10 +1,10 @@
-# LanPlan Application Structure
+# Lanturn Application Structure
 ## 'bin' folder
 The first folder (bin) contains a www file which is used to start the web server (put the website online).
 This code should NOT need to be modified.
 
 ## 'models' folder
-This folder contains the structures of the tables from our database (the database is hosted on a third-party site). The models are used to tell the program/app/website what the database table looks like, so that it knows what information to send and read from the database.If you open the user.js file you will see all the columns in the table structure, e.g username, email, full_name. 
+This folder contains the structures of the tables from our database (the database is hosted on a third-party site). The models are used to tell the program/app/website what the database table looks like, so that it knows what information to send and read from the database.If you open the user.js file you will see all the columns in the table structure, e.g username, email, full_name.
 This folder will only need to be modified if you want to modify the structure of the database!
 
 
@@ -28,4 +28,3 @@ This folder will contain all HTML code, so will be used when working on the fron
 
 
 ##
-
